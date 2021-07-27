@@ -23,6 +23,7 @@ class CreateEventosTable extends Migration
             $table->unsignedBigInteger('tipo_evento_id')->nullable(true);
             $table->enum('financiador', Evento::FINANCIADOR_ENUM);
             $table->foreign('tipo_evento_id')->references('id')->on('tipos_eventos');
+            $table->enum('status', Evento::STATUS_ENUM)->nullable(true);
 
             $table->timestamps();
             $table->softDeletes();

@@ -11,6 +11,7 @@ class Evento extends Model
     use HasFactory, SoftDeletes;
 
     public const FINANCIADOR_ENUM = ['Prefeitura de Recife', 'Prefeitura de Olinda'];
+    public const STATUS_ENUM = ['Ativo', 'Desativado'];
 
     protected $fillable = [
         'nome_evento',
