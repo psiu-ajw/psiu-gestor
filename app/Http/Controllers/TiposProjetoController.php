@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\evento;
+use App\Models\TiposProjeto;
 use Illuminate\Http\Request;
 
-class EventoController extends Controller
+class TiposProjetoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class EventoController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //
     }
 
     /**
@@ -41,10 +41,10 @@ class EventoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\evento  $evento
+     * @param  \App\Models\tipos__projeto  $tipos__projeto
      * @return \Illuminate\Http\Response
      */
-    public function show(evento $evento)
+    public function show(tipos__projeto $tipos__projeto)
     {
         //
     }
@@ -52,10 +52,10 @@ class EventoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\evento  $evento
+     * @param  \App\Models\tipos__projeto  $tipos__projeto
      * @return \Illuminate\Http\Response
      */
-    public function edit(evento $evento)
+    public function edit(tipos__projeto $tipos__projeto)
     {
         //
     }
@@ -64,10 +64,10 @@ class EventoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\evento  $evento
+     * @param  \App\Models\tipos__projeto  $tipos__projeto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, evento $evento)
+    public function update(Request $request, tipos__projeto $tipos__projeto)
     {
         //
     }
@@ -75,10 +75,10 @@ class EventoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\evento  $evento
+     * @param  \App\Models\tipos__projeto  $tipos__projeto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(evento $evento)
+    public function destroy(tipos__projeto $tipos__projeto)
     {
         //
     }

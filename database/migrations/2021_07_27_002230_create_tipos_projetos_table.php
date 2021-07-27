@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TiposEvento extends Migration
+class CreateTiposProjetosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class TiposEvento extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_evento', function (Blueprint $table) {
+        Schema::create('tipos_projetos', function (Blueprint $table) {
             $table->id();
+            $table->string('nome_projeto')->nullable(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -26,6 +28,6 @@ class TiposEvento extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_evento');
+        Schema::dropIfExists('tipos_projetos');
     }
 }

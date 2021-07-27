@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\EventoController;
+use App\Http\Controllers\projetoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/index', [EventoController::class,  'index'])->name('index');
+Route::get('/index', [projetoController::class,  'index'])->name('index');

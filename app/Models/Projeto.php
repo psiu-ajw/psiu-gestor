@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Evento extends Model
+class Projeto extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -14,13 +14,13 @@ class Evento extends Model
     public const STATUS_ENUM = ['Ativo', 'Desativado'];
 
     protected $fillable = [
-        'nome_evento',
-        'area_evento',
+        'nome_projeto',
+        'area_projeto',
         'pontuacao'
     ];
 
-    public function tipos_evento()
+    public function tipos_projeto()
     {
-        return $this->belongsTo(TiposEvento::class, 'tipo_evento_id');
+        return $this->belongsTo(Tiposprojeto::class, 'tipo_projeto_id');
     }
 }

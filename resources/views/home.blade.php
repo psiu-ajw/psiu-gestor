@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
 
                 <div class="row justify-content-center">
-                {{-- Card Tipo Eventos --}}
+                {{-- Card Tipo projetos --}}
                 <div class="col-sm-4">
                     <div id="card">
                         <a id="link-card" href="#">
@@ -13,14 +13,14 @@
                                 <img id="card-image" src="#" alt="">
                             </div>
                             <div class="row justify-content-center">
-                                <div id="card-text">Tipo Eventos</div>
+                                <div id="card-text">Tipo projetos</div>
                             </div>
                         </a>
                     </div>
                 </div> 
 
 
-            {{-- Card Eventos --}}
+            {{-- Card projetos --}}
 
                 
                         <div class="col-sm-4">
@@ -30,7 +30,7 @@
                                         <img id="card-image-categorias" src="#" alt="">
                                     </div>
                                     <div class="row justify-content-center">
-                                        <div id="card-text">Eventos</div>
+                                        <div id="card-text">projetos</div>
                                     </div>
                                 </a>
                             </div>

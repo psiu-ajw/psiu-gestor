@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\tipos__evento;
+use App\Models\Projeto;
 use Illuminate\Http\Request;
 
-class TiposEventoController extends Controller
+class ProjetoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class TiposEventoController extends Controller
      */
     public function index()
     {
-        //
+        return view('home');
     }
 
     /**
@@ -41,10 +41,10 @@ class TiposEventoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\tipos__evento  $tipos__evento
+     * @param  \App\Models\projeto  $projeto
      * @return \Illuminate\Http\Response
      */
-    public function show(tipos__evento $tipos__evento)
+    public function show(Projeto $projeto)
     {
         //
     }
@@ -52,10 +52,10 @@ class TiposEventoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\tipos__evento  $tipos__evento
+     * @param  \App\Models\projeto  $projeto
      * @return \Illuminate\Http\Response
      */
-    public function edit(tipos__evento $tipos__evento)
+    public function edit(Projeto $projeto)
     {
         //
     }
@@ -64,10 +64,10 @@ class TiposEventoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\tipos__evento  $tipos__evento
+     * @param  \App\Models\projeto  $projeto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tipos__evento $tipos__evento)
+    public function update(Request $request, Projeto $projeto)
     {
         //
     }
@@ -75,10 +75,10 @@ class TiposEventoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\tipos__evento  $tipos__evento
+     * @param  \App\Models\projeto  $projeto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tipos__evento $tipos__evento)
+    public function destroy(Projeto $projeto)
     {
         //
     }

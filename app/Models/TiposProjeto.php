@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class TiposEvento extends Model
+class TiposProjeto extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['nome_evento'];
+    protected $fillable = ['nome_projeto'];
 
-    public function eventos()
+    public function projetos()
     {
-        return $this->hasMany(Evento::class);
+        return $this->hasMany(Projeto::class);
     }
 }
