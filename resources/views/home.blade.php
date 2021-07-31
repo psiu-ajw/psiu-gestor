@@ -45,6 +45,12 @@
                                 </div>
                                 <h3 class="text-sm font-bold mt-4">Comunidades</h3>
                             </a> 
+                            <a href="{{route('informes')}}" class="mt-10  bg-gray-80 hover:bg-gray-100 rounded shadow-xl hover:shadow-md hover:no-underline p-10">
+                                <div class="h-12 w-12 bg-gradient-to-r from-red-500 to-yellow-600 flex items-center justify-center rounded shadow-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
+                                </div>
+                                <h3 class="text-sm font-bold mt-4">Informes</h3>
+                            </a> 
                         </div>
                 </div>
             </div>
