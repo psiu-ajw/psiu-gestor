@@ -23,4 +23,11 @@ class CommunityController extends Controller
         ]);
         return redirect()->action([CommunityController::class, 'index'])->with('status', 'Comunidade cadastrada com sucesso!');
     }
+
+    public function destroy($id)
+    {
+        $community = Community::findOrFail($id);
+        $community->delete();
+        return redirect()->action([CommunityController::class, 'index'])->with('status', 'Comunidade excluída com sucesso!');
+    }
 }

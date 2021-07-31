@@ -34,4 +34,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('community/create', function () { return view('communities.create'); })->name('community.create');
     Route::post('community/create', [CommunityController::class, 'create'])->name('community.create');
     Route::get('communities', [CommunityController::class, 'index'])->name('communities');
+    Route::get('/community/destroy/{id}', [CommunityController::class, 'destroy'])->name('community.destroy');
 });
