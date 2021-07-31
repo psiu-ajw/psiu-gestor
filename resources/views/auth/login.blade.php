@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+@if (isset(Auth::user()->id))
+    {{ Redirect::route('home')  }}
+@endif
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -41,13 +44,13 @@
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
+                               <!-- <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
                                         {{ __('Lembrar neste navegador') }}
                                     </label>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
@@ -59,7 +62,7 @@
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Esqueceu a senha?') }}
+                                      <!--  {{ __('Esqueceu a senha?') }} -->
                                     </a>
                                 @endif
                             </div>

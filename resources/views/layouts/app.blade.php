@@ -39,16 +39,15 @@
                     @guest
                     @else
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto ml-3">
                         @if(Route::is('users') )
                             <li>
-                                <a  class="nav-link ml-5 flex" href="{{ route('register') }}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <a href="{{ route('register') }}" class="flex bg-blue-300 hover:bg-blue-400 hover:no-underline shadow-md hover:shadow-sm text-gray-900 font-semibold hover:text-gray-500 py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
-                                        Cadastrar Usuário
-                                </a>
-                                
+                                    Cadastrar Usuário
+                                </a>                                
                             </li>
                         @endif
                     </ul>
