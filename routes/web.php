@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommunityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +25,13 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/users', [UserController::class, 'index'])->name('users');
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
     Route::get('/user/destroy/{id}', [UserController::class, 'destroy'])->name('destroy');
-    Route::get('register', function () {
-        return view('user.register');
-    });
+    Route::get('register', function () { return view('user.register'); });
     Route::post('register', [UserController::class, 'register'])->name('register');
     Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('edit');
     Route::post('user/save', [UserController::class, 'save'])->name('user.save');
     Route::get('/user/changepassword', function () {return view('user.changepassword');});
     Route::post('user/changepassword', [UserController::class, 'changepassword'])->name('user.changepassword');
+    Route::get('community/create', function () { return view('communities.create'); });
+    Route::post('community/create', [CommunityController::class, 'create'])->name('communities.create');
+    Route::get('communities', [CommunityController::class, 'index'])->name('communities');
 });
