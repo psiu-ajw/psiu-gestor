@@ -1,8 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\ProjetoController;
+use App\Http\Controllers\TiposProjetoController;
+use App\Models\TiposProjeto;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +22,7 @@ use App\Http\Controllers\CommunityController;
 Auth::routes();
 
 Route::get('/', function () {
+
     return view('auth.login');
 });
 
@@ -34,4 +40,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('community/create', function () { return view('communities.create'); });
     Route::post('community/create', [CommunityController::class, 'create'])->name('communities.create');
     Route::get('communities', [CommunityController::class, 'index'])->name('communities');
+    Route::get('/index', [TiposProjetoController::class,  'index'])->name('index');
+    Route::get('/create', [TiposProjetoController::class,  'create'])->name('typeProject');
+    Route::post('/store', [TiposProjetoController::class,   'store'])->name('create.project');
 });
+    return view('home');
+});
+
