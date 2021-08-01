@@ -30,4 +30,20 @@ class CommunityController extends Controller
         $community->delete();
         return redirect()->action([CommunityController::class, 'index'])->with('status', 'Comunidade excluída com sucesso!');
     }
+
+    public function edit($id) {
+        $community = Community::findOrFail($id);
+        return view('communities.edit')->with(['community' => $community]);
+    }
+
+    protected function save(Request $request)
+    {
+        $community = Community::findOrFail($request['id']);
+        $community->name = $request['name'];
+        $community->description = $request['description'];
+        
+        $community->save();
+        return redirect()->action([CommunityController::class, 'index'])->with('status', 'Comunidade atualizada com sucesso!');
+    }
+
 }
