@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\projetoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjetoController;
+use App\Http\Controllers\TiposProjetoController;
+use App\Models\TiposProjeto;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/index', [projetoController::class,  'index'])->name('index');
+//Route::get('/index', [TiposProjetoController::class,  'index'])->name('index');
+Route::get('/index', [TiposProjetoController::class,  'index'])->name('index');
+Route::get('/create', [TiposProjetoController::class,  'create'])->name('typeProject');
+Route::post('/store', [TiposProjetoController::class,   'store'])->name('create.project');

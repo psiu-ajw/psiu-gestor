@@ -14,7 +14,8 @@ class TiposProjetoController extends Controller
      */
     public function index()
     {
-        //
+        $tipoProjeto = TiposProjeto::all();
+        return view ('listProject', ['tipoProjeto' => $tipoProjeto]);
     }
 
     /**
@@ -24,7 +25,7 @@ class TiposProjetoController extends Controller
      */
     public function create()
     {
-        //
+        return view ('createTypeProject');
     }
 
     /**
@@ -36,6 +37,23 @@ class TiposProjetoController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request);
+
+        $request->validate([
+            'nome_projeto' =>  'required|min:6'
+        ]);
+
+        $tipoProjeto = new TiposProjeto;
+        $tipoProjeto->nome_projeto = $request->nome_projeto;
+        if(strlen($request->nome_projeto) < 6)
+        {
+            return redirect()->back()->withErros(['nome_projeto' => 'Numero de caracteres tem que ser maior que 6'])->withInput();
+        }
+
+
+        $tipoProjeto->save();
+        return redirect(route('index'))->with(['mensagem' => "Público Criado com sucesso!"]);
+        
     }
 
     /**
@@ -44,7 +62,7 @@ class TiposProjetoController extends Controller
      * @param  \App\Models\tipos__projeto  $tipos__projeto
      * @return \Illuminate\Http\Response
      */
-    public function show(tipos__projeto $tipos__projeto)
+    public function show(TiposProjeto $tiposProjeto)
     {
         //
     }
@@ -55,7 +73,7 @@ class TiposProjetoController extends Controller
      * @param  \App\Models\tipos__projeto  $tipos__projeto
      * @return \Illuminate\Http\Response
      */
-    public function edit(tipos__projeto $tipos__projeto)
+    public function edit(TiposProjeto $tiposProjeto)
     {
         //
     }
@@ -67,7 +85,7 @@ class TiposProjetoController extends Controller
      * @param  \App\Models\tipos__projeto  $tipos__projeto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tipos__projeto $tipos__projeto)
+    public function update(Request $request, TiposProjeto $tiposProjeto)
     {
         //
     }
@@ -78,7 +96,7 @@ class TiposProjetoController extends Controller
      * @param  \App\Models\tipos__projeto  $tipos__projeto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tipos__projeto $tipos__projeto)
+    public function destroy(TiposProjeto $tiposProjeto)
     {
         //
     }

@@ -8,7 +8,7 @@
                 {{-- Card Tipo projetos --}}
                 <div class="col-sm-4">
                     <div id="card">
-                        <a id="link-card" href="#">
+                        <a id="link-card" href="{{route('index')}}">
                             <div class="row justify-content-center">
                                 <img id="card-image" src="#" alt="">
                             </div>
