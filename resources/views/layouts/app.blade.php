@@ -50,6 +50,7 @@
                                 </a>                                
                             </li>
                         @endif
+<<<<<<< HEAD
                         @if(Route::is('communities') )
                             <li>
                                 <a href="{{route('community.create')}}" class="flex bg-blue-300 hover:bg-blue-400 hover:no-underline shadow-md hover:shadow-sm text-gray-900 font-semibold hover:text-gray-500 py-2 px-4 border border-blue-500 hover:border-transparent rounded">
@@ -60,6 +61,8 @@
                                 </a>                                
                             </li>
                         @endif
+=======
+>>>>>>> copy/users
                     </ul>
 
                     <!-- Right Side Of Navbar -->

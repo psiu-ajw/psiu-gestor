@@ -1,9 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\TiposProjetoController;
 use App\Models\TiposProjeto;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +21,9 @@ use App\Models\TiposProjeto;
 */
 
 Route::get('/', function () {
-    return view('home');
+
+    return view('auth.login');
 });
-//Route::get('/index', [TiposProjetoController::class,  'index'])->name('index');
-Route::get('/index', [TiposProjetoController::class,  'index'])->name('index');
-Route::get('/create', [TiposProjetoController::class,  'create'])->name('typeProject');
-Route::post('/store', [TiposProjetoController::class,   'store'])->name('create.project');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -35,10 +36,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('user/save', [UserController::class, 'save'])->name('user.save');
     Route::get('/user/changepassword', function () {return view('user.changepassword');});
     Route::post('user/changepassword', [UserController::class, 'changepassword'])->name('user.changepassword');
-    Route::get('community/create', function () { return view('communities.create'); })->name('community.create');
-    Route::post('community/create', [CommunityController::class, 'create'])->name('community.create');
+    Route::get('community/create', function () { return view('communities.create'); });
+    Route::post('community/create', [CommunityController::class, 'create'])->name('communities.create');
     Route::get('communities', [CommunityController::class, 'index'])->name('communities');
-    Route::get('community/destroy/{id}', [CommunityController::class, 'destroy'])->name('community.destroy');
-    Route::get('community/edit/{id}', [CommunityController::class, 'edit'])->name('community.edit');
-    Route::post('community/save', [CommunityController::class, 'save'])->name('community.save');
+    Route::get('/index', [TiposProjetoController::class,  'index'])->name('index');
+    Route::get('/create', [TiposProjetoController::class,  'create'])->name('typeProject');
+    Route::post('/store', [TiposProjetoController::class,   'store'])->name('create.project');
 });
+
