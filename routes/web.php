@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user/changepassword', function () {return view('user.changepassword');});
     Route::post('user/changepassword', [UserController::class, 'changepassword'])->name('user.changepassword');
     Route::get('community/create', function () { return view('communities.create'); });
-    Route::post('community/create', [CommunityController::class, 'create'])->name('communities.create');
+    Route::post('community/create', [CommunityController::class, 'create'])->name('community.create');
     Route::get('communities', [CommunityController::class, 'index'])->name('communities');
     Route::get('community/destroy/{id}', [CommunityController::class, 'destroy'])->name('community.destroy');
     Route::get('community/edit/{id}', [CommunityController::class, 'edit'])->name('community.edit');
