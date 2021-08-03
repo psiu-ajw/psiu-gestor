@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\InformesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +38,15 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('community/destroy/{id}', [CommunityController::class, 'destroy'])->name('community.destroy');
     Route::get('community/edit/{id}', [CommunityController::class, 'edit'])->name('community.edit');
     Route::post('community/save', [CommunityController::class, 'save'])->name('community.save');
+    /*Danilo - Rota Informes - INI */
+    Route::get('informes/create', function () { return view('informes.create'); });
+    Route::post('informes/create', [InformesController::class, 'create'])->name('informes.create');
+    Route::get('informes', [InformesController::class, 'index'])->name('informes');
+    Route::get('registra_informes', function () { return view('informes.registra_informes'); });
+    Route::post('registra_informes', [InformesController::class, 'registra_informes'])->name('registra_informes');
+    Route::get('/informes/destroy/{id}', [InformesController::class, 'destroy'])->name('destroy'); 
+    Route::get('/informes/edit/{id}', [InformesController::class, 'edit'])->name('edit');
+    Route::post('informes/save', [InformesController::class, 'save'])->name('informes.save');
+    Route::get('registra_informes', [InformesController::class, 'getProjetos'])->name('getProjetos');
+    /*Danilo - Rota Informes - FIM */
 });
