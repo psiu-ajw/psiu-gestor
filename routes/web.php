@@ -19,6 +19,7 @@ use App\Models\TiposProjeto;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', function () {
 
@@ -39,8 +40,19 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('community/create', function () { return view('communities.create'); });
     Route::post('community/create', [CommunityController::class, 'create'])->name('communities.create');
     Route::get('communities', [CommunityController::class, 'index'])->name('communities');
-    Route::get('/index', [TiposProjetoController::class,  'index'])->name('index');
-    Route::get('/create', [TiposProjetoController::class,  'create'])->name('typeProject');
-    Route::post('/store', [TiposProjetoController::class,   'store'])->name('create.project');
+    Route::get('/index/item', [TiposProjetoController::class,  'index'])->name('index.item');
+    Route::get('/create/item', [TiposProjetoController::class,  'create'])->name('typeProject');
+    Route::post('/store/item', [TiposProjetoController::class,   'store'])->name('create.item');
+    Route::get('/delete/item/{id}', [TiposProjetoController::class, 'delete'])->name('delete.item');
+    Route::get('/edit/item/{id}', [TiposProjetoController::class, 'edit'])->name('edit.item');
+    Route::post('/update', [TiposProjetoController::class, 'update'])->name('update.item');
+    Route::get('/index/list', [ProjetoController::class,  'index'])->name('index.project');
+    Route::get('/create', [ProjetoController::class,  'create'])->name('new.project');
+    Route::post('/store/project', [ProjetoController::class,   'store'])->name('create.project');
+    Route::get('/delete/projeto/{id}', [ProjetoController::class, 'delete'])->name('delete.project');
+    Route::get('/edit/projeto/{id}', [ProjetoController::class, 'edit'])->name('edit.project');
+    Route::post('/update/projeto', [ProjetoController::class, 'update'])->name('update.project');
+
+
 });
 

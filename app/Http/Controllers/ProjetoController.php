@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Projeto;
+use App\Models\TiposProjeto;
 use Illuminate\Http\Request;
 
 class ProjetoController extends Controller
@@ -14,7 +15,8 @@ class ProjetoController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $projetos = Projeto::all();
+        return view ('Project/lista', ['projetos' => $projetos]);
     }
 
     /**
@@ -24,7 +26,10 @@ class ProjetoController extends Controller
      */
     public function create()
     {
-        //
+        $itens = TiposProjeto::all();
+        //dd($itens);
+        $financiadores = Projeto::FINANCIADOR_ENUM;
+        return view ('Project/criarProjeto', ['itens' => $itens], ['financiadores' => $financiadores]);
     }
 
     /**
@@ -35,7 +40,26 @@ class ProjetoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $request->validate([
+            'nome_projeto' =>  'required|min:6',
+            'area_projeto' =>  'required'
+            //'tipo_projeto_id' => 'required',
+            //'financiador' => 'required',
+
+        ]);
+
+        
+        $projeto =  new Projeto();
+        $projeto->nome_projeto = $request->nome_projeto;
+        $projeto->area_projeto = $request->area_projeto;
+        $projeto->pontuacao = 0;
+        $projeto->tipo_projeto_id = $request->item_id;
+        $projeto->financiador = $request->financiador;
+        //dd($projeto);
+        $projeto->save();
+
+        return redirect()->route('index.project')->with(['mensagem' => "Projeto Criado com sucessso!!"]);
     }
 
     /**
@@ -55,9 +79,11 @@ class ProjetoController extends Controller
      * @param  \App\Models\projeto  $projeto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Projeto $projeto)
+    public function edit(Request $request)
     {
-        //
+        $projeto = Projeto::find($request->id);
+    
+        return view ('Project/editarProjeto', ['projeto' => $projeto]);
     }
 
     /**
@@ -67,9 +93,12 @@ class ProjetoController extends Controller
      * @param  \App\Models\projeto  $projeto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Projeto $projeto)
+    public function update(Request $request)
     {
-        //
+        $projeto = Projeto::findOrFail($request->id);
+        $projeto->update($request->all());
+
+        return redirect()->route('index.project')->with('mensagem', 'Projeto editado com sucesso!!!');
     }
 
     /**
@@ -78,8 +107,12 @@ class ProjetoController extends Controller
      * @param  \App\Models\projeto  $projeto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Projeto $projeto)
+    public function delete($id)
     {
-        //
+        $projeto = Projeto::find($id);
+        //dd($projeto);
+        $projeto->delete();
+
+        return redirect()->route('index.project');
     }
 }

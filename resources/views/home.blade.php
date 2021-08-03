@@ -19,7 +19,7 @@
                                 </div>
                                 <h3 class="text-sm font-bold mt-4">Usuários</h3>
                             </a>
-                            <a href="#" class="bg-gray-80 hover:bg-gray-100 rounded shadow-xl hover:shadow-md hover:no-underline p-10">
+                            <a href="{{ route('index.project') }}" class="bg-gray-80 hover:bg-gray-100 rounded shadow-xl hover:shadow-md hover:no-underline p-10">
                                 <div class="h-12 w-12 bg-gradient-to-r from-red-500 to-yellow-600 flex items-center justify-center rounded shadow-xl">
                                     
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -29,7 +29,7 @@
                                 </div>
                                 <h3 class="text-sm font-bold mt-4">Projetos</h3>
                             </a>
-                            <a href="#" class="bg-gray-80 hover:bg-gray-100 rounded shadow-xl hover:shadow-md hover:no-underline p-10">
+                            <a href="{{ route('index.item') }}" class="bg-gray-80 hover:bg-gray-100 rounded shadow-xl hover:shadow-md hover:no-underline p-10">
                                 <div class="h-12 w-12 bg-gradient-to-r from-red-500 to-yellow-600 flex items-center justify-center rounded shadow-xl">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-50" fill="currentColor" viewBox="0 0 24 24" stroke="none">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />

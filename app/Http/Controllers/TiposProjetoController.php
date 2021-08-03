@@ -52,7 +52,7 @@ class TiposProjetoController extends Controller
 
 
         $tipoProjeto->save();
-        return redirect(route('index'))->with(['mensagem' => "Público Criado com sucesso!"]);
+        return redirect(route('index.item'))->with(['mensagem' => "Item Criado com sucesso!"]);
         
     }
 
@@ -73,9 +73,11 @@ class TiposProjetoController extends Controller
      * @param  \App\Models\tipos__projeto  $tipos__projeto
      * @return \Illuminate\Http\Response
      */
-    public function edit(TiposProjeto $tiposProjeto)
+    public function edit(Request $request)
     {
-        //
+       $item = TiposProjeto::find($request->id);
+    
+       return view ('editItemProject', ['item' => $item]);
     }
 
     /**
@@ -85,19 +87,25 @@ class TiposProjetoController extends Controller
      * @param  \App\Models\tipos__projeto  $tipos__projeto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TiposProjeto $tiposProjeto)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'nome_projeto' =>  'required|min:6'
+        ]);
+        //dd($request);
+        $item = TiposProjeto::findOrFail($request->id);
+        $item->update($request->all());
+
+      
+
+        return redirect()->route('index.item')->with('mensagem', 'Item editado com sucesso!!!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\tipos__projeto  $tipos__projeto
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(TiposProjeto $tiposProjeto)
-    {
-        //
+  
+    public function delete($id)
+    {  
+        $item = TiposProjeto::find($id);
+        $item->delete();
+        return redirect()->route('index.item');
     }
 }

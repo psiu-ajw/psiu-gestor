@@ -3,27 +3,33 @@
 @section('content')
     
     <div class="shadow p-4 bg-white rounded container-fluid" style="overflow-x: auto;">
-		<h1 class="text-center">Itens Cadastrados</h1>
+		<h1 class="text-center">Projetos Cadastrados</h1>
 		<h2 class="text-center">
 		</h2><br>
-		@if($tipoProjeto != null)
+		@if($projetos != null)
 			<table id="tabela_dados" class="table table-hover">
 		 		<thead>
 					<tr>
 						<th>#</th>
-						<th>Itens Projeto</th>
+						<th>Nome</th>
+						<th>Area</th>
+						<th>Pontuação</th>
+						<th>Financiador</th>
 						<th style="width: 15%">Opções</th>
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($tipoProjeto as $projetos)
+					@foreach($projetos as $projeto)
 					
 						<tr>
-							<td>{{$projetos->id}}</td>
-							<td>{{$projetos->nome_projeto}}</td>
+							<td>{{$projeto->id}}</td>
+							<td>{{$projeto->nome_projeto}}</td>
+							<td>{{$projeto->area_projeto}}</td>
+							<td>{{$projeto->pontuacao}}</td>
+							<td>{{$projeto->financiador}}</td> 
 							<td>
-								<a href="{{ route('edit.item', ['id' => $projetos->id]) }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-								<a onclick="return confirm('Você tem certeza que deseja excluir?')" href="{{ route('delete.item', ['id' => $projetos->id]) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+								<a href="{{ route('edit.project', ['id' => $projeto->id]) }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+								<a onclick="return confirm('Você tem certeza que deseja excluir?')" href="{{ route('delete.project', ['id' => $projeto->id]) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
 							</td>
 						</tr>
 					@endforeach
@@ -34,7 +40,7 @@
 		@endif
 		
 		<div class="col-md-12 text-center">
-			<br><a class="btn btn-primary" href="{{route('typeProject')}}"> Inserir novo </a><br>
+			<br><a class="btn btn-primary" href="{{route('new.project')}}"> Inserir novo </a><br>
 		</div>
 
 	</div>
