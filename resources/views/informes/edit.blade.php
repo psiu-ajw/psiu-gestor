@@ -10,7 +10,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="txt_informe" class="col-md-4 col-form-label text-md-right">{{ __('txt_informe') }}</label>
+                            <label for="txt_informe" class="col-md-4 col-form-label text-md-right">{{ __('Texto informativo') }}</label>
 
                             <div class="col-md-6">
                                 <input id="id" type="hidden" class="form-control" name="id" value="{{ $informes->id }}">
