@@ -1,64 +1,91 @@
 @extends('layouts.app')
-@section('titulo','Cadastrar Projeto')
+
 @section('content')
-	
-	<form class="shadow p-3 bg-white rounded" action= "{{route('create.project')}}" method="post">
-		<h1 class="text-center"> Cadastrar Projeto </h1><br>
-			@csrf
-		<div class="form-row col-md-12 justify-content-center">
-			<div class="form-group col-md-4">
-				<label for="nome_projeto">Nome do Projeto</label>
-				<input type="text" class="form-control{{ $errors->has('nome_projeto') ? ' is-invalid' : '' }}"  name="nome_projeto" id="nome_projeto" placeholder="Digite o nome do projetp" value="{{ old('nome_projeto') }}" required autofocus>
-				@if ($errors->has('nome_projeto'))
-					<span class = "invalid-feedback" role="alert">
-						<strong>{{$errors->first('nome_projeto')}}
-					</span>
-				@endif
-			</div> 
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Cadastro de Projeto') }}</div>
 
-            <div class="form-group col-md-4">
-				<label for="area_projeto">Área do Projeto</label>
-				<input type="text" class="form-control{{ $errors->has('area_projeto') ? ' is-invalid' : '' }}"  name="area_projeto" id="area_projeto" placeholder="Digite a Area do Projeto" value="{{ old('area_projeto') }}" required autofocus>
-				@if ($errors->has('area_projeto'))
-					<span class = "invalid-feedback" role="alert">
-						<strong>{{$errors->first('area_projeto')}}
-					</span>
-				@endif
-			</div>
-		
-			<div class="form-group col-md-4">
-				<label for="item_id">Itens</label>
-				<select class="form-control{{ $errors->has('item_id') ? ' is-invalid' : '' }}" name="item_id" required autofocus>
-					<option hidden disabled selected>Selecione o itens</option>
-					@foreach ($itens as $item)
-						<option value="{{$item->id}}" {{ old('item') == $item->id ? 'selected' : ''}}   >{{$item->nome_projeto}}</option>
-					@endforeach
-				</select>
-				@if ($errors->has('item_id'))
-					<span class = "invalid-feedback" role="alert">
-						{{$errors->first('item_id')}}
-					</span>
-				@endif
-			</div>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('create.project') }}">
+                        @csrf
 
-            <div class="form-group col-md-4">
-				<label for="financiador">Financiador</label>
-				<select class="form-control{{ $errors->has('financiador') ? ' is-invalid' : '' }}" name="financiador" required autofocus>
-					<option hidden disabled selected>Selecione o itens</option>
-					@foreach ($financiadores as $financiador)
-						<option value="{{$financiador}}" @if (old('financiador') == $financiador) selected @endif>{{$financiador}}</option>
-					@endforeach
-				</select>
-				@if ($errors->has('financiador'))
-					<span class = "invalid-feedback" role="alert">
-						{{$errors->first('financiador')}}
-					</span>
-				@endif
-			</div>
-		</div>
+                        <div class="form-group row">
+                            <label for="nome_projeto" class="col-md-4 col-form-label text-md-right">{{ __('Nome do Projeto') }}</label>
 
-		<div class="col-md-12 text-center">
-			<br><button type="submit" class="btn btn-primary">Cadastrar</button><br><br>
-		</div>
-	</form>
-@stop
+                            <div class="col-md-6">
+                                <input id="nome_projeto" type="text" class="form-control @error('nome_projeto') inválido @enderror" name="nome_projeto" value="{{ old('nome_projeto') }}" required autocomplete="nome_projeto" autofocus>
+
+                                @error('nome_projeto')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="area_projeto" class="col-md-4 col-form-label text-md-right">{{ __('Área do Projeto') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="area_projeto" type="text" class="form-control @error('area_projeto') inválido @enderror" name="area_projeto" value="{{ old('area_projeto') }}" required autocomplete="area_projeto">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="Itens" class="col-md-4 col-form-label text-md-right">{{ __('Itens') }}</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control{{ $errors->has('item_id') ? ' is-invalid' : '' }}" name="item_id" required autofocus>
+									<option hidden disabled selected>Selecione o itens</option>
+									@foreach ($itens as $item)
+										<option value="{{$item->id}}" {{ old('item') == $item->id ? 'selected' : ''}}   >{{$item->nome_projeto}}</option>
+									@endforeach
+								</select>
+								@if ($errors->has('item_id'))
+									<span class = "invalid-feedback" role="alert">
+										{{$errors->first('item_id')}}
+									</span>
+								@endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="financiador" class="col-md-4 col-form-label text-md-right">{{ __('Financiador') }}</label>
+
+                            <div class="col-md-6">
+								<select class="form-control{{ $errors->has('financiador') ? ' is-invalid' : '' }}" name="financiador" required autofocus>
+									<option hidden disabled selected>Selecione o itens</option>
+									@foreach ($financiadores as $financiador)
+										<option value="{{$financiador}}" @if (old('financiador') == $financiador) selected @endif>{{$financiador}}</option>
+									@endforeach
+								</select>
+								@if ($errors->has('financiador'))
+									<span class = "invalid-feedback" role="alert">
+										{{$errors->first('financiador')}}
+									</span>
+								@endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Cadastrar') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
