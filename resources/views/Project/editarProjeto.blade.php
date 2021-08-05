@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="area_projeto" class="col-md-4 col-form-label text-md-right">{{ __('Area Projeto') }}</label>
+                            <label for="area_projeto" class="col-md-4 col-form-label text-md-right">{{ __('Área Projeto') }}</label>
 
                             <div class="col-md-6">
                                 <input id="area_projeto" type="text" class="form-control @error('area_projeto') inválido @enderror" name="area_projeto" value= "{{ $projeto->area_projeto }}" required autocomplete="area_projeto" autofocus>
@@ -39,10 +39,22 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="pontuacao" class="col-md-4 col-form-label text-md-right">{{ __('Pontuação') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="pontuacao" type="text" class="form-control @error('pontuacao') inválido @enderror" name="pontuacao" value="{{ old('pontuacao') }}" required autocomplete="pontuacao">
+
+                                @error('pontuacao')
+                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Editar') }}
+                                    {{ __('Salvar') }}
                                 </button>
                             </div>
                         </div>

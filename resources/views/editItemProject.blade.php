@@ -16,11 +16,8 @@
 
                             <div class="col-md-6">
                                 <input id="nome_projeto" type="text" class="form-control @error('nome_projeto') inválido @enderror" name="nome_projeto" value= "{{ $item->nome_projeto }}" required autocomplete="nome_projeto" autofocus>
-
                                 @error('nome_projeto')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>

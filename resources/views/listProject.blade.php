@@ -42,13 +42,7 @@
 		@else
 			<p class="text-center alert alert-light">Não existem projeto cadastrados até o momento.</p>
 		@endif
-		
-		<div class="col-md-12 text-center">
-			<br><a class="btn btn-primary" href="{{route('typeProject')}}"> Inserir novo </a><br>
-		</div>
-
 	</div>
-
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#tabela_dados').DataTable({
