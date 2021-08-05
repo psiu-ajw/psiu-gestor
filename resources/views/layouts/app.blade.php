@@ -16,8 +16,6 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -49,7 +47,7 @@
                     <ul class="navbar-nav mr-auto ml-3">
                         @if(Route::is('users') )
                             <li>
-                                <a href="{{ route('register') }}" class="flex bg-blue-300 hover:bg-blue-400 hover:no-underline shadow-md hover:shadow-sm text-gray-900 font-semibold hover:text-gray-500 py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                                <a href="{{ route('register') }}" class="btn btn-primary flex">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
@@ -69,7 +67,7 @@
                         @endif
                         @if(Route::is('communities') )
                             <li>
-                                <a href="{{route('community.create')}}" class="flex bg-blue-300 hover:bg-blue-400 hover:no-underline shadow-md hover:shadow-sm text-gray-900 font-semibold hover:text-gray-500 py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                                <a href="{{route('community.create')}}" class="btn btn-primary flex">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
@@ -77,6 +75,17 @@
                                 </a>                                
                             </li>
                         @endif
+                        @if(Route::is('index.project') )
+                            <li>
+                                <a class="btn btn-primary flex" href="{{route('new.project')}}"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    Cadastrar projeto 
+                                </a>                               
+                            </li>
+                        @endif
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
