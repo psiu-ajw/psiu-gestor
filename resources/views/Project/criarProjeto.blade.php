@@ -18,9 +18,7 @@
                                 <input id="nome_projeto" type="text" class="form-control @error('nome_projeto') inválido @enderror" name="nome_projeto" value="{{ old('nome_projeto') }}" required autocomplete="nome_projeto" autofocus>
 
                                 @error('nome_projeto')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
@@ -31,10 +29,19 @@
                             <div class="col-md-6">
                                 <input id="area_projeto" type="text" class="form-control @error('area_projeto') inválido @enderror" name="area_projeto" value="{{ old('area_projeto') }}" required autocomplete="area_projeto">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                @error('area_projeto')
+                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="pontuacao" class="col-md-4 col-form-label text-md-right">{{ __('Pontuação') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="pontuacao" type="text" class="form-control @error('pontuacao') inválido @enderror" name="pontuacao" value="{{ old('pontuacao') }}" required autocomplete="pontuacao">
+
+                                @error('pontuacao')
+                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>

@@ -53,13 +53,13 @@ class ProjetoController extends Controller
         $projeto =  new Projeto();
         $projeto->nome_projeto = $request->nome_projeto;
         $projeto->area_projeto = $request->area_projeto;
-        $projeto->pontuacao = 0;
+        $projeto->pontuacao = $request->pontuacao;
         $projeto->tipo_projeto_id = $request->item_id;
         $projeto->financiador = $request->financiador;
         //dd($projeto);
         $projeto->save();
 
-        return redirect()->route('index.project')->with(['mensagem' => "Projeto Criado com sucessso!!"]);
+        return redirect()->route('index.project')->with(['status' => "Projeto Criado com sucessso!!"]);
     }
 
     /**
@@ -98,7 +98,7 @@ class ProjetoController extends Controller
         $projeto = Projeto::findOrFail($request->id);
         $projeto->update($request->all());
 
-        return redirect()->route('index.project')->with('mensagem', 'Projeto editado com sucesso!!!');
+        return redirect()->route('index.project')->with('status', 'Projeto editado com sucesso!!!');
     }
 
     /**

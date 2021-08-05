@@ -36,12 +36,12 @@ class TiposProjetoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        //dd($request);
 
         $request->validate([
-            'nome_projeto' =>  'required|min:6'
+            'nome_projeto' =>  'required|min:6',
         ]);
+
+        
 
         $tipoProjeto = new TiposProjeto;
         $tipoProjeto->nome_projeto = $request->nome_projeto;
@@ -52,7 +52,7 @@ class TiposProjetoController extends Controller
 
 
         $tipoProjeto->save();
-        return redirect(route('index.item'))->with(['mensagem' => "Item Criado com sucesso!"]);
+        return redirect(route('index.item'))->with(['status' => "Item Criado com sucesso!"]);
         
     }
 
@@ -98,7 +98,7 @@ class TiposProjetoController extends Controller
 
       
 
-        return redirect()->route('index.item')->with('mensagem', 'Item editado com sucesso!!!');
+        return redirect()->route('index.item')->with('status', 'Item editado com sucesso!!!');
     }
 
   
