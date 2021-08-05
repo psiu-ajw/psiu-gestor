@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Editar de comunidade') }}</div>
+                <div class="card-header">{{ __('Editar comunidade') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('community.save') }}">
