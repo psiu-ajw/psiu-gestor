@@ -11,6 +11,8 @@
                   <tr>
                     <th class="p-3">Projeto</th>
                     <th class="p-3">Informes</th>
+                    <th class="p-3">Cadastro</th>
+                    <th class="p-3">Ações</th>
                   </tr>
                 </thead>
                 <tbody>
