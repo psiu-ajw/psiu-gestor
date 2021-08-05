@@ -17,7 +17,7 @@ use App\Http\Controllers\CommunityController;
 Auth::routes();
 
 Route::get('/', function () {
-    return view('auth.login');
+    return redirect('login');
 });
 
 Route::group(['middleware' => 'auth'], function() {
