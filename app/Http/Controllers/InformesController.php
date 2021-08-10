@@ -51,7 +51,7 @@ class InformesController extends Controller
 
     public function getProjetos()
     {
-        $projeto = DB::table('projeto')->pluck("nm_projeto","id_projeto");
+        $projeto = DB::table('projetos')->pluck("nome_projeto","id");
         return view('informes.registra_informes',compact('projeto'));
     }
 
