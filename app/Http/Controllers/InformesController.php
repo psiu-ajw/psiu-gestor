@@ -11,8 +11,8 @@ class InformesController extends Controller
     public function index()
     {
         //$informes = DB::table('informes')->get();
-        $informes = Informes::join('projeto', 'informes.id_projeto', '=', 'projeto.id_projeto' )
-        ->get(['informes.*', 'projeto.nm_projeto']);
+        $informes = Informes::join('projetos', 'informes.id_projeto', '=', 'projeto.id' )
+        ->get(['informes.*', 'projetos.nome_projeto']);
 
         return view('informes.index')->with(['informes' => $informes]);
     }
