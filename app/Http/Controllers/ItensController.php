@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Itens;
-use App\Models\TiposProjeto;
 use Illuminate\Http\Request;
 
-class TiposProjetoController extends Controller
+class ItensController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -45,14 +44,14 @@ class TiposProjetoController extends Controller
 
 
         $item = new Itens();
-        $$item->nome_projeto = $request->item_nome;
+        $item->item_nome = $request->item_nome;
         if(strlen($request->item_nome) < 6)
         {
             return redirect()->back()->withErros(['item_nome' => 'Numero de caracteres tem que ser maior que 6'])->withInput();
         }
 
 
-        $tipoProjeto->save();
+        $item->save();
         return redirect(route('index.item'))->with(['status' => "Item Criado com sucesso!"]);
 
     }
@@ -89,9 +88,9 @@ class TiposProjetoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
-    {
+    {   //dd($request);
         $request->validate([
-            'item_projeto' =>  'required|min:6'
+            'item_nome' =>  'required|min:6'
         ]);
         //dd($request);
         $item = Itens::findOrFail($request->id);

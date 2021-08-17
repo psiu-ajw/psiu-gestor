@@ -35,7 +35,7 @@
                     {{ config('app.name', 'Laravel') }}
                 </div>
                 @endif
-                
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -52,7 +52,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                     Cadastrar Usuário
-                                </a>                                
+                                </a>
                             </li>
                         @elseif(Route::is('informes') )
                             <li>
@@ -61,7 +61,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                     Cadastrar Informes
-                                </a>                                
+                                </a>
                             </li>
 
                         @endif
@@ -72,27 +72,27 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                     Cadastrar Comunidade
-                                </a>                                
+                                </a>
                             </li>
                         @endif
                         @if(Route::is('index.project') )
                             <li>
-                                <a class="btn btn-primary flex" href="{{route('new.project')}}"> 
+                                <a class="btn btn-primary flex" href="{{route('new.project')}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
-                                    Cadastrar projeto 
-                                </a>                               
+                                    Cadastrar projeto
+                                </a>
                             </li>
                         @endif
                         @if(Route::is('index.item') )
                             <li>
-                                <a class="btn btn-primary flex" href="{{route('typeProject')}}"> 
+                                <a class="btn btn-primary flex" href="{{route('create.item')}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
-                                    Cadastrar item 
-                                </a>                               
+                                    Cadastrar item
+                                </a>
                             </li>
                         @endif
                     </ul>

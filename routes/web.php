@@ -6,8 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\InformesController;
 use App\Http\Controllers\ProjetoController;
-use App\Http\Controllers\TiposProjetoController;
-use App\Models\TiposProjeto;
+use App\Http\Controllers\ItensController;
+use App\Models\Itens;
 
 
 /*
@@ -49,17 +49,17 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('informes', [InformesController::class, 'index'])->name('informes');
     Route::get('registra_informes', function () { return view('informes.registra_informes'); });
     Route::post('registra_informes', [InformesController::class, 'registra_informes'])->name('registra_informes');
-    Route::get('/informes/destroy/{id}', [InformesController::class, 'destroy'])->name('destroy'); 
+    Route::get('/informes/destroy/{id}', [InformesController::class, 'destroy'])->name('destroy');
     Route::get('/informes/edit/{id}', [InformesController::class, 'edit'])->name('edit');
     Route::post('informes/save', [InformesController::class, 'save'])->name('informes.save');
     Route::get('registra_informes', [InformesController::class, 'getProjetos'])->name('getProjetos');
     /*Danilo - Rota Informes - FIM */
-    Route::get('/index/item', [TiposProjetoController::class,  'index'])->name('index.item');
-    Route::get('/create/item', [TiposProjetoController::class,  'create'])->name('typeProject');
-    Route::post('/store/item', [TiposProjetoController::class,   'store'])->name('create.item');
-    Route::get('/delete/item/{id}', [TiposProjetoController::class, 'delete'])->name('delete.item');
-    Route::get('/edit/item/{id}', [TiposProjetoController::class, 'edit'])->name('edit.item');
-    Route::post('/update', [TiposProjetoController::class, 'update'])->name('update.item');
+    Route::get('/index/item', [ItensController::class,  'index'])->name('index.item');
+    Route::get('/create/item', [ItensController::class,  'create'])->name('create.item');
+    Route::post('/store/item', [ItensController::class,   'store'])->name('store.item');
+    Route::get('/delete/item/{id}', [ItensController::class, 'delete'])->name('delete.item');
+    Route::get('/edit/item/{id}', [ItensController::class, 'edit'])->name('edit.item');
+    Route::post('/update', [ItensController::class, 'update'])->name('update.item');
     Route::get('/index/list', [ProjetoController::class,  'index'])->name('index.project');
     Route::get('/create', [ProjetoController::class,  'create'])->name('new.project');
     Route::post('/store/project', [ProjetoController::class,   'store'])->name('create.project');

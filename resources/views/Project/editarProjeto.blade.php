@@ -43,7 +43,7 @@
                             <label for="pontuacao" class="col-md-4 col-form-label text-md-right">{{ __('Pontuação') }}</label>
 
                             <div class="col-md-6">
-                                <input id="pontuacao" type="text" class="form-control @error('pontuacao') inválido @enderror" name="pontuacao" value="{{ old('pontuacao') }}" required autocomplete="pontuacao">
+                                <input id="pontuacao" type="text" class="form-control @error('pontuacao') inválido @enderror" name="pontuacao" value="{{ $projeto->pontuacao }}" required autocomplete="pontuacao">
 
                                 @error('pontuacao')
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>

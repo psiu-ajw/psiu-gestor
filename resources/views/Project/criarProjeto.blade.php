@@ -50,10 +50,10 @@
                             <label for="Itens" class="col-md-4 col-form-label text-md-right">{{ __('Itens') }}</label>
 
                             <div class="col-md-6">
-                                <select class="form-control{{ $errors->has('item_id') ? ' is-invalid' : '' }}" name="item_id" required autofocus>
+                                <select class="form-control{{ $errors->has('item_id') ? ' is-invalid' : '' }}" name="itens_select[]"  multiple>
 									<option hidden disabled selected>Selecione o itens</option>
 									@foreach ($itens as $item)
-										<option value="{{$item->id}}" {{ old('item') == $item->id ? 'selected' : ''}}   >{{$item->nome_projeto}}</option>
+										<option value="{{$item->id}}" {{ old('item') == $item->id ? 'selected' : ''}}   >{{$item->item_nome}}</option>
 									@endforeach
 								</select>
 								@if ($errors->has('item_id'))
@@ -69,7 +69,7 @@
 
                             <div class="col-md-6">
 								<select class="form-control{{ $errors->has('financiador') ? ' is-invalid' : '' }}" name="financiador" required autofocus>
-									<option hidden disabled selected>Selecione o itens</option>
+									<option hidden disabled selected>Selecione o Financiador</option>
 									@foreach ($financiadores as $financiador)
 										<option value="{{$financiador}}" @if (old('financiador') == $financiador) selected @endif>{{$financiador}}</option>
 									@endforeach

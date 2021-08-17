@@ -19,8 +19,8 @@ class Projeto extends Model
         'pontuacao'
     ];
 
-    public function tipos_projeto()
+    public function Itensprojeto()
     {
-        return $this->belongsTo(Tiposprojeto::class, 'tipo_projeto_id');
+        return $this->hasMany(Itens::class, 'id_projeto');
     }
 }

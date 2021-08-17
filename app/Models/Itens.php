@@ -12,8 +12,9 @@ class Itens extends Model
 
     protected $fillable = ['item_nome'];
 
-    public function projetos()
+
+    public function Itensprojeto()
     {
-        return $this->hasMany(Projeto::class);
+        return $this->hasMany(Itens::class, 'id_item');
     }
 }
