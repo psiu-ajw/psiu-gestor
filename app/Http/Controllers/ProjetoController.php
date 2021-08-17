@@ -49,12 +49,12 @@ class ProjetoController extends Controller
 
         ]);
 
-        
+
         $projeto =  new Projeto();
         $projeto->nome_projeto = $request->nome_projeto;
         $projeto->area_projeto = $request->area_projeto;
         $projeto->pontuacao = $request->pontuacao;
-        $projeto->tipo_projeto_id = $request->item_id;
+        $projeto->item_projeto_id = $request->item_id;
         $projeto->financiador = $request->financiador;
         //dd($projeto);
         $projeto->save();
@@ -82,7 +82,7 @@ class ProjetoController extends Controller
     public function edit(Request $request)
     {
         $projeto = Projeto::find($request->id);
-    
+
         return view ('Project/editarProjeto', ['projeto' => $projeto]);
     }
 

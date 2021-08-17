@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Itens;
 use App\Models\TiposProjeto;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,8 @@ class TiposProjetoController extends Controller
      */
     public function index()
     {
-        $tipoProjeto = TiposProjeto::all();
-        return view ('listProject', ['tipoProjeto' => $tipoProjeto]);
+        $itens = Itens::all();
+        return view ('listItens', ['itens' => $itens]);
     }
 
     /**
@@ -25,7 +26,7 @@ class TiposProjetoController extends Controller
      */
     public function create()
     {
-        return view ('createTypeProject');
+        return view ('createItem');
     }
 
     /**
@@ -38,22 +39,22 @@ class TiposProjetoController extends Controller
     {
 
         $request->validate([
-            'nome_projeto' =>  'required|min:6',
+            'item_nome' =>  'required|min:6',
         ]);
 
-        
 
-        $tipoProjeto = new TiposProjeto;
-        $tipoProjeto->nome_projeto = $request->nome_projeto;
-        if(strlen($request->nome_projeto) < 6)
+
+        $item = new Itens();
+        $$item->nome_projeto = $request->item_nome;
+        if(strlen($request->item_nome) < 6)
         {
-            return redirect()->back()->withErros(['nome_projeto' => 'Numero de caracteres tem que ser maior que 6'])->withInput();
+            return redirect()->back()->withErros(['item_nome' => 'Numero de caracteres tem que ser maior que 6'])->withInput();
         }
 
 
         $tipoProjeto->save();
         return redirect(route('index.item'))->with(['status' => "Item Criado com sucesso!"]);
-        
+
     }
 
     /**
@@ -62,7 +63,7 @@ class TiposProjetoController extends Controller
      * @param  \App\Models\tipos__projeto  $tipos__projeto
      * @return \Illuminate\Http\Response
      */
-    public function show(TiposProjeto $tiposProjeto)
+    public function show(Itens $item)
     {
         //
     }
@@ -75,9 +76,9 @@ class TiposProjetoController extends Controller
      */
     public function edit(Request $request)
     {
-       $item = TiposProjeto::find($request->id);
-    
-       return view ('editItemProject', ['item' => $item]);
+       $item = Itens::find($request->id);
+
+       return view ('editItem', ['item' => $item]);
     }
 
     /**
@@ -90,21 +91,21 @@ class TiposProjetoController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'nome_projeto' =>  'required|min:6'
+            'item_projeto' =>  'required|min:6'
         ]);
         //dd($request);
-        $item = TiposProjeto::findOrFail($request->id);
+        $item = Itens::findOrFail($request->id);
         $item->update($request->all());
 
-      
+
 
         return redirect()->route('index.item')->with('status', 'Item editado com sucesso!!!');
     }
 
-  
+
     public function delete($id)
-    {  
-        $item = TiposProjeto::find($id);
+    {
+        $item = Itens::find($id);
         $item->delete();
         return redirect()->route('index.item');
     }

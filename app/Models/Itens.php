@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class TiposProjeto extends Model
+class Itens extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['nome_projeto'];
+    protected $fillable = ['item_nome'];
 
     public function projetos()
     {
