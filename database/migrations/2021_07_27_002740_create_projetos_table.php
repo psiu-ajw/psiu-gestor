@@ -21,11 +21,8 @@ class CreateProjetosTable extends Migration
             $table->string('nome_projeto')->nullable(true);
             $table->string('area_projeto')->nullable(true);
             $table->integer('pontuacao')->nullable(true);
-            $table->unsignedBigInteger('tipo_projeto_id')->nullable(true);
             $table->enum('financiador', Projeto::FINANCIADOR_ENUM);
-            $table->foreign('tipo_projeto_id')->references('id')->on('tipos_projetos');
             $table->enum('status', Projeto::STATUS_ENUM)->nullable(true);
-
             $table->timestamps();
             $table->softDeletes();
         });

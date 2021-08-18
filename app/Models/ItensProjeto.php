@@ -6,14 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class TiposProjeto extends Model
+class ItensProjeto extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['nome_projeto'];
+    protected $fillalbe = ['id_item', 'id_projeto'];
 
     public function projetos()
     {
-        return $this->hasMany(Projeto::class);
+        return $this->belongsTo(Projeto::class, 'id_projeto');
+    }
+
+    public function itens()
+    {
+        return $this->belongsTo(Itens::class, 'id_item');
     }
 }

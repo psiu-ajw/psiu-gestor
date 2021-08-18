@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Projeto;
-use App\Models\TiposProjeto;
+use App\Models\Itens;
+use App\Models\ItensProjeto;
 use Illuminate\Http\Request;
 
 class ProjetoController extends Controller
@@ -26,7 +27,7 @@ class ProjetoController extends Controller
      */
     public function create()
     {
-        $itens = TiposProjeto::all();
+        $itens = Itens::all();
         //dd($itens);
         $financiadores = Projeto::FINANCIADOR_ENUM;
         return view ('Project/criarProjeto', ['itens' => $itens], ['financiadores' => $financiadores]);
@@ -49,15 +50,26 @@ class ProjetoController extends Controller
 
         ]);
 
-        
+
         $projeto =  new Projeto();
         $projeto->nome_projeto = $request->nome_projeto;
         $projeto->area_projeto = $request->area_projeto;
         $projeto->pontuacao = $request->pontuacao;
-        $projeto->tipo_projeto_id = $request->item_id;
         $projeto->financiador = $request->financiador;
         //dd($projeto);
         $projeto->save();
+
+        //dd($request->itens_select);
+
+        foreach($request->itens_select as $item_id)
+
+        {   $itens_projeto =  new ItensProjeto();
+            $itens_projeto->id_projeto = $projeto->id;
+            $itens_projeto->id_item = $item_id;
+            $itens_projeto->save();
+        }
+
+
 
         return redirect()->route('index.project')->with(['status' => "Projeto Criado com sucessso!!"]);
     }
@@ -82,7 +94,8 @@ class ProjetoController extends Controller
     public function edit(Request $request)
     {
         $projeto = Projeto::find($request->id);
-    
+        //dd($projeto);
+
         return view ('Project/editarProjeto', ['projeto' => $projeto]);
     }
 
