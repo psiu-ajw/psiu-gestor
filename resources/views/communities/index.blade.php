@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('pageTitle', ' - Comunidades')
 @section('content')
 @include('popper::assets')
 
