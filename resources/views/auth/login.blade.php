@@ -61,11 +61,7 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-<<<<<<< HEAD
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-=======
-                                    <a name="login_button" class="btn btn-link" href="{{ route('password.request') }}">
->>>>>>> parent of 4271e17... button name changed
                                       <!--  {{ __('Esqueceu a senha?') }} -->
                                     </a>
                                 @endif
