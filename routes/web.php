@@ -49,10 +49,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('informes', [InformesController::class, 'index'])->name('informes');
     Route::get('registra_informes', function () { return view('informes.registra_informes'); });
     Route::post('registra_informes', [InformesController::class, 'registra_informes'])->name('registra_informes');
-    Route::get('/informes/destroy/{id}', [InformesController::class, 'destroy'])->name('destroy');
-    Route::get('/informes/edit/{id}', [InformesController::class, 'edit'])->name('edit');
-    Route::post('informes/save', [InformesController::class, 'save'])->name('informes.save');
-    Route::get('registra_informes', [InformesController::class, 'getProjetos'])->name('getProjetos');
+    //Route::get('/informes/destroy/{id}', [InformesController::class, 'destroy'])->name('destroy');
+    //Route::get('/informes/edit/{id}', [InformesController::class, 'edit'])->name('edit');
+    //Route::post('informes/save', [InformesController::class, 'save'])->name('informes.save');
+    //Route::get('registra_informes', [InformesController::class, 'getProjetos'])->name('getProjetos');
     /*Danilo - Rota Informes - FIM */
     Route::get('/index/item', [ItensController::class,  'index'])->name('index.item');
     Route::get('/create/item', [ItensController::class,  'create'])->name('create.item');
@@ -66,6 +66,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/delete/projeto/{id}', [ProjetoController::class, 'delete'])->name('delete.project');
     Route::get('/edit/projeto/{id}', [ProjetoController::class, 'edit'])->name('edit.project');
     Route::post('/update/projeto', [ProjetoController::class, 'update'])->name('update.project');
+    Route::post('/insert/item/{projeto_id}/{item_id}', [ProjetoController::class, 'insertItem'])->name('insert.item');
+
 
 
 });

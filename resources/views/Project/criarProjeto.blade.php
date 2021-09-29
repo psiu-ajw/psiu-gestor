@@ -45,25 +45,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="Itens" class="col-md-4 col-form-label text-md-right">{{ __('Itens') }}</label>
-
-                            <div class="col-md-6">
-                                <select class="form-control{{ $errors->has('item_id') ? ' is-invalid' : '' }}" name="itens_select[]"  multiple>
-									<option hidden disabled selected>Selecione o itens</option>
-									@foreach ($itens as $item)
-										<option value="{{$item->id}}" {{ old('item') == $item->id ? 'selected' : ''}}   >{{$item->item_nome}}</option>
-									@endforeach
-								</select>
-								@if ($errors->has('item_id'))
-									<span class = "invalid-feedback" role="alert">
-										{{$errors->first('item_id')}}
-									</span>
-								@endif
-                            </div>
-                        </div>
-
                         <div class="form-group row">
                             <label for="financiador" class="col-md-4 col-form-label text-md-right">{{ __('Financiador') }}</label>
 
@@ -85,7 +66,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Cadastrar') }}
+                                    {{ __('Continuar') }}
                                 </button>
                             </div>
                         </div>

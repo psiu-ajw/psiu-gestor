@@ -36,21 +36,18 @@ class ItensController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'item_nome' =>  'required|min:6',
+            'pontuacao_item' => 'required|numeric|min:0|not_in:0'
         ]);
 
-
-
-        $item = new Itens();
-        $item->item_nome = $request->item_nome;
         if(strlen($request->item_nome) < 6)
         {
             return redirect()->back()->withErros(['item_nome' => 'Numero de caracteres tem que ser maior que 6'])->withInput();
         }
-
-
+        $item = new Itens();
+        $item->item_nome = $request->item_nome;
+        $item->pontuacao_item = $request->pontuacao_item;
         $item->save();
         return redirect(route('index.item'))->with(['status' => "Item Criado com sucesso!"]);
 
@@ -90,11 +87,15 @@ class ItensController extends Controller
     public function update(Request $request)
     {   //dd($request);
         $request->validate([
-            'item_nome' =>  'required|min:6'
+            'item_nome' =>  'required|min:6',
+            'pontuacao_item' => 'required|numeric|min:0|not_in:0'
+
         ]);
         //dd($request);
         $item = Itens::findOrFail($request->id);
-        $item->update($request->all());
+        $item->item_nome = $request->item_nome;
+        $item->pontuacao_item = $request->pontuacao_item;
+        $item->update();
 
 
 
