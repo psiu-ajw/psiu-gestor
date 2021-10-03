@@ -23,4 +23,9 @@ class Projeto extends Model
     {
         return $this->hasMany(Itens::class, 'id_projeto');
     }
+
+    public function itens()
+    {
+        return $this->belongsToMany(Itens::class);
+    }
 }
