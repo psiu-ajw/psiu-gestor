@@ -68,6 +68,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Continuar') }}
                                 </button>
+                                <div class="btn btn-secondary">
+                                    <a href="{{ URL::previous() }}" class="hover:text-white hover:no-underline">Cancelar</a>
+                                </div>
                             </div>
                         </div>
                     </form>

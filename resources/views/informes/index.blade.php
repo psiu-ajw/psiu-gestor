@@ -21,7 +21,7 @@
 
                             <tr>
                                 <td class="p-3"> 
-                                    {{$informe->nm_projeto}}
+                                    {{$informe->nome_projeto}}
                                 </td>
                                 <td class="p-3">
                                     {{$informe->txt_informe}}
