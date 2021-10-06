@@ -15,6 +15,12 @@ class MoradorController extends Controller
     }
 
     public function store(Request $request){
+
+        if(Morador::where('cpf', sha1($request->input('cpf')))->exists()){
+            return response()->json(["message" => "CPF já cadastrado."], 404);
+        }
+        
+
         $morador = new Morador();
         $morador->cpf =  sha1($request->input('cpf'));
         $morador->data_nascimento = $request->input('data_nascimento');
