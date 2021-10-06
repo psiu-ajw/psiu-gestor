@@ -17,10 +17,9 @@ class CreateMoradorsTable extends Migration
             $table->id();
             $table->string('cpf');
             $table->date('data_nascimento');
-            $table->string('sexo');
             $table->string('estado_civil');
-            $table->string('cor_da_pele');
-            $table->unsignedBigInteger('comunidade')->nullable(true);
+            $table->string('raca');
+            $table->unsignedBigInteger('bairro_comunidade')->nullable(true);
             $table->timestamps();
         });
     }

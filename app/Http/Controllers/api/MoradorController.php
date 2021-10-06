@@ -18,10 +18,9 @@ class MoradorController extends Controller
         $morador = new Morador();
         $morador->cpf =  sha1($request->input('cpf'));
         $morador->data_nascimento = $request->input('data_nascimento');
-        $morador->sexo = $request->input('sexo');
         $morador->estado_civil = $request->input('estado_civil');
-        $morador->cor_da_pele = $request->input('cor_da_pele');
-        $morador->comunidade = $request->input('comunidade');
+        $morador->raca = $request->input('raca');
+        $morador->bairro_comunidade = $request->input('bairro_comunidade');
 
     
         if( $morador->save() ){

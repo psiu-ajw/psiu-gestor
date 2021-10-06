@@ -18,10 +18,9 @@ class Morador extends JsonResource
             'id' => $this->id,
             'cpf' => $this->cpf,
             'data_nascimento' => $this->data_nascimento,
-            'sexo' => $this->sexo,
             'estado_civil' => $this->estado_civil,
-            'cor_da_pele' => $this->cor_da_pele,
-            'comunidade' => $this->comunidade,
+            'raca' => $this->raca,
+            'bairro_comunidade' => $this->bairro_comunidade,
           ];
     }
 }

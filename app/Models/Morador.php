@@ -9,7 +9,7 @@ class Morador extends Model
 {
     use HasFactory;
 
-    protected $fillalbe = ['cpf', 'data_nascimento', 'sexo', 'estado_civil', 'cor_da_pele', 'comunidade'];
+    protected $fillalbe = ['cpf', 'data_nascimento', 'estado_civil', 'raca', 'bairro_comunidade'];
 
     public function comunidades()
     {
