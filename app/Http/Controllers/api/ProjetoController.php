@@ -17,7 +17,7 @@ class ProjetoController extends Controller
     public function show($id) {
         if (Projeto::where('id', $id)->exists()) {
             $projeto = Projeto::find($id);
-            $projeto->itensprojeto;
+            $projeto->itens;
             return response($projeto, 200);
           } else {
             return response()->json([
