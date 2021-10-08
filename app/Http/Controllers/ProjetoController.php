@@ -61,6 +61,8 @@ class ProjetoController extends Controller
 
         //dd($request->itens_select);
 
+        $projeto->save();
+
         foreach($request->itens_select as $item_id)
 
         {   $itens_projeto =  new ItensProjeto();
