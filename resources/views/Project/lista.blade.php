@@ -13,7 +13,7 @@
 					<tr>
 						<th>#</th>
 						<th>Nome</th>
-						<th>Area</th>
+						<th>Bairro / Comunidade</th>
 						<th>Pontuação</th>
 						<th>Financiador</th>
 						<th style="width: 15%">Opções</th>
@@ -25,7 +25,7 @@
 						<tr>
 							<td>{{$projeto->id}}</td>
 							<td>{{$projeto->nome_projeto}}</td>
-							<td>{{$projeto->area_projeto}}</td>
+							<td>{{$projeto->comunidade->name}}</td>
 							<td>{{$projeto->pontuacao}}</td>
 							<td>{{$projeto->financiador}}</td> 
 							<td>
