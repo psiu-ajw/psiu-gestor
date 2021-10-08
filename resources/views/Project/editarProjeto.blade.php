@@ -24,8 +24,25 @@
                                 @enderror
                             </div>
                         </div>
-
+                        
                         <div class="form-group row">
+                            <label for="Comunidade" class="col-md-4 col-form-label text-md-right">{{ __('Bairro / Comunidade') }}</label>
+                            <div class="col-md-6">
+                                <select class="form-control{{ $errors->has('id') ? ' is-invalid' : '' }}" name="community_id" >
+                                    <option hidden disabled selected>Selecione o bairro ou comunidade</option>
+                                    @foreach ($comunidades as $comunidade)
+                                        <option value="{{$comunidade->id}}" {{$projeto->comunidade->id  == $comunidade->id ? 'selected' : ''}}   >{{$comunidade->name}}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('id'))
+                                    <span class = "invalid-feedback" role="alert">
+                                        {{$errors->first('id')}}
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        {{-- <div class="form-group row">
                             <label for="area_projeto" class="col-md-4 col-form-label text-md-right">{{ __('Área Projeto') }}</label>
 
                             <div class="col-md-6">
@@ -37,7 +54,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row">
                             <label for="pontuacao" class="col-md-4 col-form-label text-md-right">{{ __('Pontuação') }}</label>
