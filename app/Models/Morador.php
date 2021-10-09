@@ -11,8 +11,8 @@ class Morador extends Model
 
     protected $fillalbe = ['cpf', 'data_nascimento', 'estado_civil', 'raca', 'bairro_comunidade'];
 
-    public function comunidades()
+    public function comunidade()
     {
-        return $this->belongsTo(Community::class, 'comunidade');
+        return $this->belongsTo(Community::class, 'bairro_comunidade');
     }
 }

@@ -16,21 +16,25 @@ class MoradorController extends Controller
 
     public function store(Request $request){
 
+        
+        
         if(Morador::where('cpf', sha1($request->input('cpf')))->exists()){
             return response()->json(["message" => "CPF já cadastrado."], 404);
         }
         
-
+        
         $morador = new Morador();
         $morador->cpf =  sha1($request->input('cpf'));
         $morador->data_nascimento = $request->input('data_nascimento');
         $morador->estado_civil = $request->input('estado_civil');
         $morador->raca = $request->input('raca');
         $morador->bairro_comunidade = $request->input('bairro_comunidade');
-
-    
+        
+        
+        
         if( $morador->save() ){
-          return new MoradorResource( $morador );
+            $morador->comunidade->projetos;
+            return response()->json($morador, 200);
         }
       }
 
