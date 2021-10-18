@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Cadastro de Projeto') }}</div>
                 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('insert.item', ['projeto_id' => $projeto->id]) }}">
+                    <form method="POST" action="{{ route('store.item', ['projeto_id' => $projeto->id]) }}">
                         @csrf
                         
                         <div class="form-group row">
@@ -18,7 +18,7 @@
                                 <select id="item" class="form-control{{ $errors->has('item_id') ? ' is-invalid' : '' }}" name="itens_select[]"  multiple>
 									<option hidden disabled selected>Selecione o itens</option>
 									@foreach ($itens as $item)
-										<option value="{{$item->id}}" {{ old('item') == $item->id ? 'selected' : ''}}   >{{$item->item_nome}}</option>
+										<option value="{{$item->id}}" {{ old('item') == $item->id ? 'selected' : ''}} >{{$item->item_nome}}</option>
 									@endforeach
 								</select>
 								@if ($errors->has('item_id'))

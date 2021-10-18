@@ -80,6 +80,11 @@ class ProjetoController extends Controller
      */
     public function insertItem (Request $request)
     {
+        if($request == null ) {
+            return redirect()->back()->withErrors([
+                "itens_select" => "Informe um item."
+            ])->withInput();
+        }
         $pontuacao = 0;
         foreach($request->itens_select as $item_id) 
         {   $itens_projeto =  new ItensProjeto();
