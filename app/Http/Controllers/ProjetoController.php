@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+//use App\Models\Community;
+use App\Models\Projeto;
 use App\Models\Itens;
 use App\Models\Projeto;
 use App\Models\ItensProjeto;
@@ -29,9 +31,9 @@ class ProjetoController extends Controller
     public function create()
     {
         $itens = Itens::all();
-        //dd($itens);
+        $comunidades = Community::all();
         $financiadores = Projeto::FINANCIADOR_ENUM;
-        return view ('Project/criarProjeto', ['itens' => $itens], ['financiadores' => $financiadores]);
+        return view ('Project/criarProjeto', ['itens' => $itens, 'comunidades' => $comunidades], ['financiadores' => $financiadores]);
     }
 
     /**
@@ -44,8 +46,8 @@ class ProjetoController extends Controller
     {
         //dd($request);
         $request->validate([
-            'nome_projeto' =>  'required|min:6',
-            'area_projeto' =>  'required'
+            'nome_projeto' =>  'required',
+            //'area_projeto' =>  'required'
             //'tipo_projeto_id' => 'required',
             //'financiador' => 'required',
 
@@ -57,7 +59,7 @@ class ProjetoController extends Controller
 
         $projeto =  new Projeto();
         $projeto->nome_projeto = $request->nome_projeto;
-        $projeto->area_projeto = $request->area_projeto;
+        $projeto->community_id = $request->community_id;
         $projeto->pontuacao = $request->pontuacao;
         $projeto->financiador = $request->financiador;
         //dd($projeto);
@@ -65,6 +67,19 @@ class ProjetoController extends Controller
         return view ('Project/insertItem', ['itens' => $itens], ['projeto' => $projeto]);
 
         //return redirect()->route('index.project')->with(['status' => "Projeto Criado com sucessso!!"]);
+
+        //dd($request->itens_select);
+
+        $projeto->save();
+
+        foreach($request->itens_select as $item_id)
+
+        {   $itens_projeto =  new ItensProjeto();
+            $itens_projeto->id_projeto = $projeto->id;
+            $itens_projeto->id_item = $item_id;
+            $itens_projeto->save();
+        }
+
 
         //dd($request->itens_select);
 
@@ -120,9 +135,9 @@ class ProjetoController extends Controller
     public function edit(Request $request)
     {
         $projeto = Projeto::find($request->id);
+        $comunidades = Community::all();
         //dd($projeto);
-
-        return view ('Project/editarProjeto', ['projeto' => $projeto]);
+        return view ('Project/editarProjeto', ['projeto' => $projeto, 'comunidades' => $comunidades]);
     }
 
     /**
