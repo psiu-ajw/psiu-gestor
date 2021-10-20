@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\MoradorController;
 use App\Http\Controllers\api\ProjetoController;
 use App\Http\Controllers\api\InformesController;
+use App\Http\Controllers\api\PropostaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ use App\Http\Controllers\api\InformesController;
 
 Route::get('moradores', [MoradorController::class, 'index']);
 Route::post('morador', [MoradorController::class, 'store']);
+Route::post('proposta', [PropostaController::class, 'store']);
 Route::get('projetos', [ProjetoController::class, 'index']);
 Route::get('projeto/{id}', [ProjetoController::class, 'show']);
 Route::get('informes/{id}', [InformesController::class, 'index']);
