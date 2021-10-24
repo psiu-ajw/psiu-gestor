@@ -17,9 +17,11 @@ class CreateItensProjetosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_projeto')->nullable(true);
             $table->unsignedBigInteger('id_item')->nullable(true);
+            $table->integer('pontuacao_item')->nullable(true);
             $table->foreign('id_projeto')->references('id')->on('projetos');
             $table->foreign('id_item')->references('id')->on('itens');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

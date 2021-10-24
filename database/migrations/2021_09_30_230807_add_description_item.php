@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPointItem extends Migration
+class AddDescriptionItem extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddPointItem extends Migration
     public function up()
     {
         Schema::table('itens', function (Blueprint $table) {
-            $table->integer('pontuacao_item')->nullable(true);
+            $table->string('description')->nullable(true);
         });
     }
 
@@ -26,7 +26,7 @@ class AddPointItem extends Migration
     public function down()
     {
         Schema::table('itens', function (Blueprint $table) {
-            $table->dropColumn('pontuacao_item');
+            $table->dropColumn('imagem');
         });
     }
 }

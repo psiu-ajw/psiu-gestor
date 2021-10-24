@@ -13,7 +13,7 @@
 					<tr>
 						<th>#</th>
 						<th>Itens</th>
-						<th>Pontuação</th>
+						<th>Descrição</th>
 						<th style="width: 15%">Opções</th>
 					</tr>
 				</thead>
@@ -23,7 +23,7 @@
 						<tr>
 							<td>{{$item->id}}</td>
 							<td>{{$item->item_nome}}</td>
-							<td>{{$item->pontuacao_item}}</td>
+							<td>{{$item->description}}</td>
 							<td>
 								<a @popper(Editar item) href="{{ route('edit.item', ['id' => $item->id]) }}" class="btn btn-primary">
 									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">

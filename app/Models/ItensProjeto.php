@@ -10,7 +10,7 @@ class ItensProjeto extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillalbe = ['id_item', 'id_projeto'];
+    protected $fillalbe = ['id_item', 'id_projeto', 'pontuacao_item'];
 
     public function projetos()
     {

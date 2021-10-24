@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 //use App\Models\Community;
+use App\Models\Community;
 use App\Models\Projeto;
 use App\Models\Itens;
-use App\Models\Projeto;
+use App\Models\Projetos;
 use App\Models\ItensProjeto;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -53,37 +54,25 @@ class ProjetoController extends Controller
 
         ]);
 
-        //dd($request);
-
-        $itens = Itens::all();
-
         $projeto =  new Projeto();
         $projeto->nome_projeto = $request->nome_projeto;
         $projeto->community_id = $request->community_id;
         $projeto->pontuacao = $request->pontuacao;
         $projeto->financiador = $request->financiador;
-        //dd($projeto);
         $projeto->save();
-        return view ('Project/insertItem', ['itens' => $itens], ['projeto' => $projeto]);
-
-        //return redirect()->route('index.project')->with(['status' => "Projeto Criado com sucessso!!"]);
-
-        //dd($request->itens_select);
-
-        $projeto->save();
-
-        foreach($request->itens_select as $item_id)
-
-        {   $itens_projeto =  new ItensProjeto();
+        foreach($request->itens_select as $item_id) {
+            $itens_projeto = new ItensProjeto();
             $itens_projeto->id_projeto = $projeto->id;
             $itens_projeto->id_item = $item_id;
+            $itens_projeto->pontuacao_item = 0;
             $itens_projeto->save();
         }
+        $itens = ItensProjeto::where('id_projeto', '=', $projeto->id)
+            ->join('itens', 'itens_projetos.id_item', '=', 'itens.id')->get();
+        //dd($projeto);
+        return view ('Project/insertPointItem', ['itens' => $itens], ['projeto' => $projeto]);
 
 
-        //dd($request->itens_select);
-
-        //return redirect()->route('index.project')->with(['status' => "Projeto Criado com sucessso!!"]);
     }
 
 
@@ -95,35 +84,12 @@ class ProjetoController extends Controller
      */
     public function insertItem (Request $request)
     {
-        if($request == null ) {
-            return redirect()->back()->withErrors([
-                "itens_select" => "Informe um item."
-            ])->withInput();
-        }
-        $pontuacao = 0;
-        foreach($request->itens_select as $item_id) 
-        {   $itens_projeto =  new ItensProjeto();
-            $itens_projeto->id_projeto = $request->projeto_id;
-            $itens_projeto->id_item = $item_id;
-            
-            $item = Itens::findOrFail($item_id);
-            $projeto = Projeto::findOrFail($request->projeto_id);
-            $pontuacao += $item->pontuacao_item;
-            if ($projeto->pontuacao < $pontuacao) {
-                //return redirect()->back()->withErros(['item_id' => 'Numero de caracteres tem que ser maior que 6'])->withInput();
-                return redirect()->back()->withErrors([
-                    "itens_select" => "Informe o tipo de cadastro."
-                ])->withInput();
-                //return view ('Project/insertItem', ['itens' => $itens], ['projeto' => $projeto]);
-                
-                //return false;
-            }
-            
-            $itens_projeto->save();
-        }
+        dd($request);
+    }
 
-        return redirect()->route('index.project')->with(['status' => "Projeto Criado com sucessso!!"]);
-
+    public function insertPointItem (Request $request)
+    {
+        $itemProjeto = ItensProjeto::findOrFail();
     }
 
     /**

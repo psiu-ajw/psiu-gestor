@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Itens;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class ItensController extends Controller
@@ -36,18 +37,29 @@ class ItensController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         $request->validate([
             'item_nome' =>  'required|min:6',
-            'pontuacao_item' => 'required|numeric|min:0|not_in:0'
+            //'pontuacao_item' => 'required|numeric|min:0|not_in:0',
+            'description' => 'required|min:6'
         ]);
+        if ($request->hasFile('file')) {
+
+            $request->validate([
+                'file' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+            ]);
+        }
 
         if(strlen($request->item_nome) < 6)
         {
             return redirect()->back()->withErros(['item_nome' => 'Numero de caracteres tem que ser maior que 6'])->withInput();
         }
+        $request->file->store('/item', 'public');
         $item = new Itens();
         $item->item_nome = $request->item_nome;
-        $item->pontuacao_item = $request->pontuacao_item;
+        //$item->pontuacao_item = $request->pontuacao_item;
+        $item->description =  $request->description;
+        $item->imagem = $request->file->hashName();
         $item->save();
         return redirect(route('index.item'))->with(['status' => "Item Criado com sucesso!"]);
 
@@ -88,13 +100,15 @@ class ItensController extends Controller
     {   //dd($request);
         $request->validate([
             'item_nome' =>  'required|min:6',
-            'pontuacao_item' => 'required|numeric|min:0|not_in:0'
+            'pontuacao_item' => 'required|numeric|min:0|not_in:0',
+            'description' => 'required|min:6'
 
         ]);
         //dd($request);
         $item = Itens::findOrFail($request->id);
         $item->item_nome = $request->item_nome;
         $item->pontuacao_item = $request->pontuacao_item;
+        $item->description =  $request->description;
         $item->update();
 
 

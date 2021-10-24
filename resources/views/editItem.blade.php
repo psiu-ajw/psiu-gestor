@@ -23,6 +23,17 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descrição:') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="description" type="text" class="form-control @error('description') inválido @enderror" name="description" value= "{{ $item->description }}" required autocomplete="description" autofocus>
+                                @error('description')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="pontuacao_item" class="col-md-4 col-form-label text-md-right">{{ __('Pontuacao:') }}</label>
 
                             <div class="col-md-2">
