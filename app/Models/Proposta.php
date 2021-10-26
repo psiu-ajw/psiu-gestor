@@ -12,5 +12,6 @@ class Proposta extends Model
     protected $fillable = [
         'morador_id',
         'projeto_id',
+        'text'
     ];
 }

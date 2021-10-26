@@ -17,10 +17,10 @@ class PropostaController extends Controller
         $proposta->projeto_id = $request->input('projeto_id');
         
         if( $proposta->save() ){
-            foreach($request->itens as $item)
+            foreach(explode(",", $request->itens) as $item)
             {   $itens_proposta =  new ItensProposta();
                 $itens_proposta->proposta_id = $proposta->id;
-                $itens_proposta->itens_id = $item['id'];
+                $itens_proposta->itens_id = $item;
                 $itens_proposta->save();
             }
             return response()->json(["proposta" => $proposta, "message" => "Proposta cadastrada com sucesso"], 200);
