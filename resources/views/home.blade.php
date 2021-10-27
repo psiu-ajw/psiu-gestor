@@ -67,6 +67,14 @@
                                 </div>
                                 <h3 class="text-sm font-bold mt-4">Moradores</h3>
                             </a> 
+                            <a href="#" class="mt-10  bg-gray-80 hover:bg-gray-100 rounded shadow-xl hover:shadow-md hover:no-underline p-10">
+                                <div class="h-12 w-12 bg-gradient-to-r from-red-500 to-yellow-600 flex items-center justify-center rounded shadow-xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7  w-7 text-blue-50" viewBox="0 0 20 20" fill="currentColor" stroke="none">
+                                        <path fill-rule="evenodd" d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" clip-rule="evenodd" />
+                                      </svg>
+                                </div>
+                                <h3 class="text-sm font-bold mt-4">Relatórios</h3>
+                            </a> 
                         </div>
                 </div>
             </div>
