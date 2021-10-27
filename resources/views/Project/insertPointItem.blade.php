@@ -14,6 +14,10 @@
                                 <label for="Itens" class="col-md-4 col-form-label text-md-right">{{ __($item->item_nome.':') }}</label>
                                     <div class="col-md-2">
                                         <input id="pontuacao_item" type="number" class="form-control @error('pontuacao_item') is-invalid @enderror" name="pontuacao_item" value="{{ old('pontuacao_item') }}" required autocomplete="pontuacao_item" autofocus>
+                                        <?php
+                                           $array = [];
+                                           $array = array_push($array, );?>
+
                                         @error('pontuacao_item')
                                         <div id="validationServer05Feedback" class="invalid-feedback">
                                             <strong>{{$message}}</strong>
@@ -24,7 +28,7 @@
                             </div>
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" onclick="addFunction($item.id);" class="btn btn-primary">
+                                    <button type="submit"  class="btn btn-primary">
                                         {{ __('Cadastrar') }}
                                     </button>
                                 </div>
@@ -36,8 +40,3 @@
         </div>
     </div>
 @endsection
-<script type="text/javascript">
-    function addFunction(id) {
-        document.getElementById(id).submit();
-    }
-</script>

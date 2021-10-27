@@ -70,7 +70,9 @@ class ProjetoController extends Controller
         $itens = ItensProjeto::where('id_projeto', '=', $projeto->id)
             ->join('itens', 'itens_projetos.id_item', '=', 'itens.id')->get();
         //dd($projeto);
-        return view ('Project/insertPointItem', ['itens' => $itens], ['projeto' => $projeto]);
+        $arrayPoint = [];
+
+        return view ('Project/insertPointItem', ['itens' => $itens], ['projeto' => $projeto], ['array' => $arrayPoint]);
 
 
     }
@@ -89,6 +91,7 @@ class ProjetoController extends Controller
 
     public function insertPointItem (Request $request)
     {
+        dd($request);
         $itemProjeto = ItensProjeto::findOrFail();
     }
 
