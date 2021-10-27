@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Itens;
 use App\Models\ItensProposta;
 use App\Models\Proposta;
 use Illuminate\Http\Request;
@@ -28,5 +29,15 @@ class PropostaController extends Controller
             return response()->json(["message" => "Não foi possível cadastrar a proposta."], 404);
         }
     }
+
+    public function show($id) {
+        if (Proposta::where('id', $id)->exists()) {
+            $proposta = Proposta::find($id);
+            $proposta->itens;
+            return response($proposta, 200);
+          } else {
+            return response([], 200);
+          }
+      }
 
 }

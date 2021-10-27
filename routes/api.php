@@ -21,6 +21,7 @@ use App\Http\Controllers\api\PropostaController;
 Route::get('moradores', [MoradorController::class, 'index']);
 Route::post('morador', [MoradorController::class, 'store']);
 Route::post('proposta', [PropostaController::class, 'store']);
+Route::get('proposta/{id}', [PropostaController::class, 'show']);
 Route::get('projetos', [ProjetoController::class, 'index']);
 Route::get('projeto/{id}', [ProjetoController::class, 'show']);
 Route::get('informes/{id}', [InformesController::class, 'index']);

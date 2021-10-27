@@ -12,6 +12,10 @@ class Proposta extends Model
     protected $fillable = [
         'morador_id',
         'projeto_id',
-        'text'
     ];
+
+    public function itens()
+    {
+        return $this->belongsToMany(Itens::class, 'itens_propostas');
+    }
 }
