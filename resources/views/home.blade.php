@@ -51,13 +51,13 @@
                                 </div>
                                 <h3 class="text-sm font-bold mt-4">Informes</h3>
                             </a> 
-                            <a href="#" class="mt-10  bg-gray-80 hover:bg-gray-100 rounded shadow-xl hover:shadow-md hover:no-underline p-10">
+                            <a href="{{route('etapas')}}" class="mt-10  bg-gray-80 hover:bg-gray-100 rounded shadow-xl hover:shadow-md hover:no-underline p-10">
                                 <div class="h-12 w-12 bg-gradient-to-r from-red-500 to-yellow-600 flex items-center justify-center rounded shadow-xl">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-50" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
                                         <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
                                       </svg>
                                 </div>
-                                <h3 class="text-sm font-bold mt-4">Andamento dos projetos</h3>
+                                <h3 class="text-sm font-bold mt-4">Andamento das Obras</h3>
                             </a> 
                             <a href="#" class="mt-10  bg-gray-80 hover:bg-gray-100 rounded shadow-xl hover:shadow-md hover:no-underline p-10">
                                 <div class="h-12 w-12 bg-gradient-to-r from-red-500 to-yellow-600 flex items-center justify-center rounded shadow-xl">
