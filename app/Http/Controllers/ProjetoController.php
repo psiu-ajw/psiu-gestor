@@ -86,7 +86,7 @@ class ProjetoController extends Controller
      */
     public function insertItem (Request $request)
     {
-        dd($request);
+        //dd($request);
         $count = 0;
         $itemProjeto = ItensProjeto::where('id_projeto', '=', $request->id)->get();
         foreach ($itemProjeto as $item) {
