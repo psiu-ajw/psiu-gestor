@@ -30,7 +30,7 @@ class EtapaController extends Controller
         $projetos = Projeto::all();
         return view ('etapas/create', ['projetos' => $projetos]);
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -52,10 +52,10 @@ class EtapaController extends Controller
         $etapa->descricao = $request->descricao;
         $etapa->andamento = $request->andamento;
         $etapa->save();
-
+        
         return redirect()->route('etapas')->with(['status' => "Etapa cadastrada com sucessso!!"]);
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -66,7 +66,7 @@ class EtapaController extends Controller
     {
         //
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -75,9 +75,11 @@ class EtapaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $etapa = Etapa::find($id);
+        $projetos = Projeto::all();
+        return view ('etapas/edit', ['projetos' => $projetos, 'etapa' => $etapa]);
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -85,9 +87,12 @@ class EtapaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $etapa = Etapa::findOrFail($request->id);
+        $etapa->update($request->all());
+
+        return redirect()->route('etapas')->with('status', 'Etapa editada com sucesso!!!');
     }
 
     /**
