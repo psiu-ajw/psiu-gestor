@@ -86,13 +86,14 @@ class ProjetoController extends Controller
      */
     public function insertItem (Request $request)
     {
-        //dd($request);
         $count = 0;
         $itemProjeto = ItensProjeto::where('id_projeto', '=', $request->id)->get();
         foreach ($itemProjeto as $item) {
-            $item->pontuacao_item = $request->pontuacao_item[$count];
-            $item->update();
-            $count++;
+            foreach ($request->pontuacao_item as $point) {
+                $item->pontuacao_item = $request->pontuacao_item[$item->id_item][0];
+                $item->update();
+                $count++;
+            }
         }
         return redirect()->route('index.project')->with('status', 'Projeto editado com sucesso!!!');
 
