@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\CommunityController;
+use App\Http\Controllers\api\EtapaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\MoradorController;
 use App\Http\Controllers\api\ProjetoController;
@@ -27,3 +28,4 @@ Route::get('projeto/{id}', [ProjetoController::class, 'show']);
 Route::get('informes/{id}', [InformesController::class, 'index']);
 Route::get('comunidades', [CommunityController::class, 'index']);
 Route::get('comunidade/{id}', [CommunityController::class, 'show']);
+Route::get('etapas/{projeto}', [EtapaController::class, 'index']);
