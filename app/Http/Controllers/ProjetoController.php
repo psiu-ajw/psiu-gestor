@@ -69,10 +69,10 @@ class ProjetoController extends Controller
         }
         $itens = ItensProjeto::where('id_projeto', '=', $projeto->id)
             ->join('itens', 'itens_projetos.id_item', '=', 'itens.id')->get();
-        //dd($projeto);
+        //dd($projeto->id);
         $arrayPoint = [];
 
-        return view ('Project/insertPointItem', ['itens' => $itens], ['projeto' => $projeto], ['array' => $arrayPoint]);
+        return view ('Project/insertPointItem', ['itens' => $itens], ['projeto' => $projeto->id], ['array' => $arrayPoint]);
 
 
     }
@@ -87,11 +87,21 @@ class ProjetoController extends Controller
     public function insertItem (Request $request)
     {
         dd($request);
+        $count = 0;
+        $itemProjeto = ItensProjeto::where('id_projeto', '=', $request->id)->get();
+        foreach ($itemProjeto as $item) {
+            $item->pontuacao_item = $request->pontuacao_item[$count];
+            $item->update();
+            $count++;
+        }
+        return redirect()->route('index.project')->with('status', 'Projeto editado com sucesso!!!');
+
     }
 
     public function insertPointItem (Request $request)
     {
-        dd($request);
+        $id = $_GET['projeto_id'];
+        dd($id);
         $itemProjeto = ItensProjeto::findOrFail();
     }
 
