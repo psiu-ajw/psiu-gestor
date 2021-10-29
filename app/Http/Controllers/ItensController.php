@@ -56,16 +56,7 @@ class ItensController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\tipos__projeto  $tipos__projeto
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Itens $item)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
