@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-               <table class="table-auto">
+               <table class="table-auto" summary="Tabela de listagem de etapas">
                 <thead>
                   <tr>
                     <th class="p-3">Projeto</th>
