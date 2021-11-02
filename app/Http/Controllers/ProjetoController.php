@@ -149,4 +149,11 @@ class ProjetoController extends Controller
 
         return redirect()->route('index.project');
     }
+
+    public function show($id){
+        $projeto = Projeto::find($id);
+        $projeto->comunidade;
+        $projeto->itens;
+        return view ('Project/show', ['projeto' => $projeto]);
+    }
 }

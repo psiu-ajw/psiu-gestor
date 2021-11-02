@@ -24,7 +24,11 @@
 					
 						<tr>
 							<td>{{$projeto->id}}</td>
-							<td>{{$projeto->nome_projeto}}</td>
+							<td>
+								<a href={{ url('projeto', ['show', $projeto->id])}}">
+									{{$projeto->nome_projeto}}
+								</a>
+							</td>
 							<td>{{$projeto->comunidade->name}}</td>
 							<td>{{$projeto->pontuacao}}</td>
 							<td>{{$projeto->financiador}}</td> 

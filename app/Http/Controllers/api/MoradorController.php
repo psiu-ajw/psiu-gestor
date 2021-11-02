@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Morador;
 use App\Http\Resources\Morador as MoradorResource;
 use App\Models\Projeto;
+use App\Models\Proposta;
 use Illuminate\Support\Facades\DB;
 
 class MoradorController extends Controller
@@ -23,7 +24,9 @@ class MoradorController extends Controller
         if(Morador::where('cpf', sha1($request->input('cpf')))->exists()){
             $morador = Morador::where('cpf', sha1($request->input('cpf')))->first();
             $morador->comunidade->projetos;
-            $morador->proposta->itens;
+            if(Proposta::where('morador_id', $morador->id)->exists()){
+                $morador->proposta->itens;
+            }
             return response()->json(["morador" => $morador, "message" => "CPF já cadastrado"], 200);
         }else{
             $morador->cpf =  sha1($request->input('cpf'));
