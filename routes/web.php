@@ -74,5 +74,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('etapa/destroy/{id}', [EtapaController::class, 'destroy'])->name('etapa.destroy');
     Route::get('etapa/edit/{id}', [EtapaController::class, 'edit'])->name('etapa.edit');
     Route::post('etapa/update', [EtapaController::class, 'update'])->name('etapa.update');
+    
+    Route::get('projeto/show/{id}', [ProjetoController::class, 'show'])->name('projeto.show');
 });
 
