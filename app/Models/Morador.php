@@ -15,4 +15,9 @@ class Morador extends Model
     {
         return $this->belongsTo(Community::class, 'bairro_comunidade');
     }
+
+    public function proposta()
+    {
+        return $this->hasOne(Proposta::class);
+    }
 }

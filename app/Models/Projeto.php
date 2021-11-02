@@ -27,7 +27,7 @@ class Projeto extends Model
 
     public function itens()
     {
-        return $this->belongsToMany(Itens::class, 'itens_projetos', 'id_projeto', 'id_item');
+        return $this->belongsToMany(Itens::class, 'itens_projetos', 'id_projeto', 'id_item')->withPivot('pontuacao_item');
     }
 
     public function comunidade()
