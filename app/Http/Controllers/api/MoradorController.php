@@ -23,6 +23,7 @@ class MoradorController extends Controller
         if(Morador::where('cpf', sha1($request->input('cpf')))->exists()){
             $morador = Morador::where('cpf', sha1($request->input('cpf')))->first();
             $morador->comunidade->projetos;
+            $morador->proposta->itens;
             return response()->json(["morador" => $morador, "message" => "CPF já cadastrado"], 200);
         }else{
             $morador->cpf =  sha1($request->input('cpf'));

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\MoradorController;
 use App\Http\Controllers\api\ProjetoController;
 use App\Http\Controllers\api\InformesController;
+use App\Http\Controllers\api\ItensController;
 use App\Http\Controllers\api\PropostaController;
 
 /*
@@ -29,3 +30,4 @@ Route::get('informes/{id}', [InformesController::class, 'index']);
 Route::get('comunidades', [CommunityController::class, 'index']);
 Route::get('comunidade/{id}', [CommunityController::class, 'show']);
 Route::get('etapas/{projeto}', [EtapaController::class, 'index']);
+Route::get('itens/{projeto}', [ItensController::class, 'index']);
