@@ -4,11 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\EtapaController;
 use App\Http\Controllers\InformesController;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\ItensController;
 use App\Models\Itens;
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/edit/projeto/{id}', [ProjetoController::class, 'edit'])->name('edit.project');
     Route::post('/update/projeto', [ProjetoController::class, 'update'])->name('update.project');
     Route::post('/insert/item/{projeto_id}', [ProjetoController::class, 'insertItem'])->name('insert.item');
-
+    // Mayllon: Feature Andamento
+    Route::get('etapa/create', [EtapaController::class, 'create'])->name('etapa.create');
+    Route::post('etapa/store', [EtapaController::class, 'store'])->name('etapa.store');
+    Route::get('etapas', [EtapaController::class, 'index'])->name('etapas');
+    Route::get('etapa/destroy/{id}', [EtapaController::class, 'destroy'])->name('etapa.destroy');
+    Route::get('etapa/edit/{id}', [EtapaController::class, 'edit'])->name('etapa.edit');
+    Route::post('etapa/update', [EtapaController::class, 'update'])->name('etapa.update');
 });
 

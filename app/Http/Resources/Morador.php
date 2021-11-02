@@ -15,6 +15,7 @@ class Morador extends JsonResource
     public function toArray($request)
     {
         return [
+            'request' => $request,
             'id' => $this->id,
             'cpf' => $this->cpf,
             'data_nascimento' => $this->data_nascimento,
