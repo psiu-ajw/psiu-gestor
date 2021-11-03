@@ -25,22 +25,9 @@
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descrição:') }}</label>
 
                             <div class="col-md-6">
-                                <input id="item_nome" type="text" class="form-control @error('description') inválido @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus>
+                                <input id="description" type="text" class="form-control @error('description') inválido @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus>
                                 @error('description')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                                <label for="pontuacao_item" class="col-md-4 col-form-label text-md-right">{{ __('Pontuação:') }}</label>
-                            <div class="col-md-2">
-
-                                <input id="pontuacao_item" type="number" class="form-control @error('pontuacao_item') is-invalid @enderror" name="pontuacao_item" value="{{ old('pontuacao_item') }}" required autocomplete="pontuacao_item" autofocus>
-                                @error('pontuacao_item')
-                                <div id="validationServer05Feedback" class="invalid-feedback">
-                                    <strong>{{$message}}</strong>
-                                </div>
                                 @enderror
                             </div>
                         </div>

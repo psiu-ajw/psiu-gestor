@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ItensProjeto extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $fillalbe = ['id_item', 'id_projeto', 'pontuacao_item'];
 
