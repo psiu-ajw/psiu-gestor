@@ -147,6 +147,11 @@
                     {{ session('error') }}
                 </div>
             @endif
+            @if (session('alert'))
+                <div class="alert alert-warning text-center" role="error">
+                    {{ session('alert') }}
+                </div>
+            @endif
             @yield('content')
         </main>
     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Informes;
+use App\Models\Projeto;
 
 class InformesController extends Controller
 {
@@ -49,9 +50,10 @@ class InformesController extends Controller
     }
 
 
-    public function getProjetos()
+    public function create()
     {
-        $projeto = DB::table('projetos')->pluck("nome_projeto","id");
+        // $projeto = DB::table('projetos')->pluck("nome_projeto","id");
+        $projeto = Projeto::all();
         return view('informes.registra_informes',compact('projeto'));
     }
 

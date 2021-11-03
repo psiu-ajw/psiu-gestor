@@ -10,7 +10,7 @@ class CommunityController extends Controller
 {
     public function index()
     {
-        $communities = DB::table('communities')->get();
+        $communities = Community::all();
 
         return view('communities.index')->with(['communities' => $communities]);
     }

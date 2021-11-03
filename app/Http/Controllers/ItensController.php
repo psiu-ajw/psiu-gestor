@@ -39,9 +39,7 @@ class ItensController extends Controller
     {
         //dd($request);
         $request->validate([
-            'item_nome' =>  'required|min:6',
-            //'pontuacao_item' => 'required|numeric|min:0|not_in:0',
-            'description' => 'required|min:6'
+            'item_nome' =>  'required',
         ]);
         if ($request->hasFile('file')) {
 
@@ -92,7 +90,6 @@ class ItensController extends Controller
         $request->validate([
             'item_nome' =>  'required|min:6',
             'pontuacao_item' => 'required|numeric|min:0|not_in:0',
-            'description' => 'required|min:6'
 
         ]);
         //dd($request);

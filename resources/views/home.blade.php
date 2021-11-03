@@ -61,11 +61,12 @@
                             </a> 
                             <a href="#" class="mt-10  bg-gray-80 hover:bg-gray-100 rounded shadow-xl hover:shadow-md hover:no-underline p-10">
                                 <div class="h-12 w-12 bg-gradient-to-r from-red-500 to-yellow-600 flex items-center justify-center rounded shadow-xl">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-50" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path fill-rule="evenodd" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" clip-rule="evenodd" />
                                       </svg>
+                                      
                                 </div>
-                                <h3 class="text-sm font-bold mt-4">Moradores</h3>
+                                <h3 class="text-sm font-bold mt-4">Tabuleiro médio</h3>
                             </a> 
                             <a href="#" class="mt-10  bg-gray-80 hover:bg-gray-100 rounded shadow-xl hover:shadow-md hover:no-underline p-10">
                                 <div class="h-12 w-12 bg-gradient-to-r from-red-500 to-yellow-600 flex items-center justify-center rounded shadow-xl">
