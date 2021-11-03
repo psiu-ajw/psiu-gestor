@@ -8,6 +8,7 @@ use App\Http\Controllers\EtapaController;
 use App\Http\Controllers\InformesController;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\ItensController;
+use App\Http\Controllers\ItensProjetoController;
 use App\Models\Itens;
 use Illuminate\Support\Facades\Auth;
 
@@ -76,5 +77,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('etapa/update', [EtapaController::class, 'update'])->name('etapa.update');
     
     Route::get('projeto/show/{id}', [ProjetoController::class, 'show'])->name('projeto.show');
+    Route::get('/item/projeto/edit/{id}', [ItensProjetoController::class, 'edit'])->name('item.projeto.edit');
+    Route::get('/item/projeto/delete/{id}', [ItensProjetoController::class, 'destroy'])->name('item.projeto.delete');
+    Route::post('/item/projeto/update', [ItensProjetoController::class, 'update'])->name('item.projeto.update');
 });
 

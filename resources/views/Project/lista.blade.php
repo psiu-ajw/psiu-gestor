@@ -25,7 +25,7 @@
 						<tr>
 							<td>{{$projeto->id}}</td>
 							<td>
-								<a href={{ url('projeto', ['show', $projeto->id])}}">
+								<a href={{ url('projeto', ['show', $projeto->id])}}>
 									{{$projeto->nome_projeto}}
 								</a>
 							</td>
