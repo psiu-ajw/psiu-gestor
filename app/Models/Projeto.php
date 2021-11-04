@@ -34,4 +34,9 @@ class Projeto extends Model
     {
         return $this->belongsTo(Community::class, 'community_id');
     }
+
+    public function propostas()
+    {
+        return $this->hasMany(Proposta::class, 'projeto_id');
+    }
 }

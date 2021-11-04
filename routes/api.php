@@ -31,3 +31,4 @@ Route::get('comunidades', [CommunityController::class, 'index']);
 Route::get('comunidade/{id}', [CommunityController::class, 'show']);
 Route::get('etapas/{projeto}', [EtapaController::class, 'index']);
 Route::get('itens/{projeto}', [ItensController::class, 'index']);
+Route::get('tabuleiro/{id}', [PropostaController::class, 'tabuleiro']);
