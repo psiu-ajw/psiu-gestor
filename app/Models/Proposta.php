@@ -18,4 +18,9 @@ class Proposta extends Model
     {
         return $this->belongsToMany(Itens::class, 'itens_propostas');
     }
+
+    public function projeto()
+    {
+        return $this->belongsTo(Projeto::class);
+    }
 }

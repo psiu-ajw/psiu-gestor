@@ -38,6 +38,55 @@ class PropostaController extends Controller
           } else {
             return response([], 200);
           }
-      }
+    }
 
+    public function tabuleiro($id)
+    {
+        
+        $propostas = Proposta::where('projeto_id', $id)->get();
+        if (sizeof($propostas) == 0) {
+            return response()->json(["message" => "Nenhuma proposta para este projetop"], 200);
+        }
+        
+        $itens = [];
+
+        foreach ($propostas[0]->projeto->itens as $item) {
+            array_push($itens, [    "item_nome" => $item->item_nome,
+                                    "imagem" => $item->imagem,
+                                    'quantidade' => 0, 
+                                    'pontuacao_item' => $item->pivot->pontuacao_item]);
+        }
+
+        foreach ($propostas as $proposta) {
+            $i = 0;
+            foreach ($itens as $item) {
+                foreach ($proposta->itens as $itemProposta):
+                    if($itemProposta->item_nome == $item["item_nome"]){
+                        $itens[$i]['quantidade']++;
+                    }
+                endforeach;
+                $i++;
+            }
+            
+            
+        }
+
+        usort($itens, function($a, $b)
+        {
+            return strcmp($b['quantidade'], $a['quantidade']);
+        });
+
+        $itensTabuleiro = [];
+        array_push($itensTabuleiro, array_shift($itens));
+
+
+        foreach ($itens as $item) {
+            $total = array_sum(array_column($itensTabuleiro, "pontuacao_item")) + $item["pontuacao_item"];
+            if ($total <=  $propostas[0]->projeto->pontuacao && $item['quantidade'] > 0) {
+                array_push($itensTabuleiro, $item);
+            }
+        }
+        
+        return response($itensTabuleiro, 200);
+    }
 }
