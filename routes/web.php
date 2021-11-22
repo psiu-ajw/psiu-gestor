@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\EtapaController;
+use App\Http\Controllers\RelatoriosController;
 use App\Http\Controllers\InformesController;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\ItensController;
@@ -82,5 +83,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/item/projeto/update', [ItensProjetoController::class, 'update'])->name('item.projeto.update');
     Route::get('/itens/projeto/create/{id}', [ItensProjetoController::class, 'create'])->name('itens.projeto.create');
     Route::post('/item/projeto/store', [ItensProjetoController::class, 'store'])->name('item.projeto.store');
+    // Danilo: Feature Relatorios
+    Route::get('relatorios', [RelatoriosController::class, 'index'])->name('relatorios');
+
 });
 
