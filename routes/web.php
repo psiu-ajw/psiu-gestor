@@ -50,7 +50,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('informes/create', [InformesController::class, 'create'])->name('informes.create');
     Route::get('informes', [InformesController::class, 'index'])->name('informes');
     Route::post('registra_informes', [InformesController::class, 'registra_informes'])->name('registra_informes');
-    //Route::get('/informes/destroy/{id}', [InformesController::class, 'destroy'])->name('destroy');
+    Route::get('/informes/destroy/{id}', [InformesController::class, 'destroy'])->name('destroy');
     //Route::get('/informes/edit/{id}', [InformesController::class, 'edit'])->name('edit');
     //Route::post('informes/save', [InformesController::class, 'save'])->name('informes.save');
     Route::get('registra_informes', [InformesController::class, 'create'])->name('informes.create');
