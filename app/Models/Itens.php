@@ -17,4 +17,5 @@ class Itens extends Model
     {
         return $this->hasMany(Itens::class, 'id_item');
     }
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Itens;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class ItensController extends Controller
@@ -36,36 +37,33 @@ class ItensController extends Controller
      */
     public function store(Request $request)
     {
-
+        //dd($request);
         $request->validate([
-            'item_nome' =>  'required|min:6',
+            'item_nome' =>  'required',
         ]);
+        if ($request->hasFile('file')) {
 
+            $request->validate([
+                'file' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+            ]);
+        }
 
-
-        $item = new Itens();
-        $item->item_nome = $request->item_nome;
         if(strlen($request->item_nome) < 6)
         {
             return redirect()->back()->withErros(['item_nome' => 'Numero de caracteres tem que ser maior que 6'])->withInput();
         }
-
-
+        $request->file->store('/item', 'public');
+        $item = new Itens();
+        $item->item_nome = $request->item_nome;
+        //$item->pontuacao_item = $request->pontuacao_item;
+        $item->description =  $request->description;
+        $item->imagem = $request->file->hashName();
         $item->save();
         return redirect(route('index.item'))->with(['status' => "Item Criado com sucesso!"]);
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\tipos__projeto  $tipos__projeto
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Itens $item)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -88,13 +86,15 @@ class ItensController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
-    {   //dd($request);
+    {   
         $request->validate([
-            'item_nome' =>  'required|min:6'
+            'item_nome' =>  'required',
+
         ]);
-        //dd($request);
         $item = Itens::findOrFail($request->id);
-        $item->update($request->all());
+        $item->item_nome = $request->item_nome;
+        $item->description =  $request->description;
+        $item->update();
 
 
 

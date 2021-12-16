@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItensProjetosTable extends Migration
+class CreateEtapasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateItensProjetosTable extends Migration
      */
     public function up()
     {
-        Schema::create('itens_projetos', function (Blueprint $table) {
+        Schema::create('etapas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_projeto')->nullable(true);
-            $table->unsignedBigInteger('id_item')->nullable(true);
-            $table->integer('pontuacao_item')->nullable(true);
+            $table->string('titulo');
+            $table->string('descricao');
+            $table->Integer('andamento')->nullable(true);
             $table->foreign('id_projeto')->references('id')->on('projetos');
-            $table->foreign('id_item')->references('id')->on('itens');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -32,6 +31,6 @@ class CreateItensProjetosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('itens_projetos');
+        Schema::dropIfExists('etapas');
     }
 }

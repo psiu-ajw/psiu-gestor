@@ -1,7 +1,13 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\api\CommunityController;
+use App\Http\Controllers\api\EtapaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\api\MoradorController;
+use App\Http\Controllers\api\ProjetoController;
+use App\Http\Controllers\api\InformesController;
+use App\Http\Controllers\api\ItensController;
+use App\Http\Controllers\api\PropostaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +20,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('moradores', [MoradorController::class, 'index']);
+Route::post('morador', [MoradorController::class, 'store']);
+Route::post('proposta', [PropostaController::class, 'store']);
+Route::get('proposta/{id}', [PropostaController::class, 'show']);
+Route::get('projetos', [ProjetoController::class, 'index']);
+Route::get('projeto/{id}', [ProjetoController::class, 'show']);
+Route::get('informes/{id}', [InformesController::class, 'index']);
+Route::get('comunidades', [CommunityController::class, 'index']);
+Route::get('comunidade/{id}', [CommunityController::class, 'show']);
+Route::get('etapas/{projeto}', [EtapaController::class, 'index']);
+Route::get('itens/{projeto}', [ItensController::class, 'index']);
+Route::get('tabuleiro/{id}', [PropostaController::class, 'tabuleiro']);

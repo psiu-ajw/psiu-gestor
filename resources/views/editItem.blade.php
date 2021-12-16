@@ -12,7 +12,7 @@
                         <input id="id" type="hidden" class="form-control" name="id" value="{{ $item->id }}">
 
                         <div class="form-group row">
-                            <label for="item_nome" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
+                            <label for="item_nome" class="col-md-4 col-form-label text-md-right">{{ __('Nome:') }}</label>
 
                             <div class="col-md-6">
                                 <input id="item_nome" type="text" class="form-control @error('item_nome') inválido @enderror" name="item_nome" value= "{{ $item->item_nome }}" required autocomplete="item_nome" autofocus>
@@ -22,6 +22,16 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descrição:') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="description" type="text" class="form-control @error('description') inválido @enderror" name="description" value= "{{ $item->description }}" required autocomplete="description" autofocus>
+                                @error('description')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -4,11 +4,14 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\EtapaController;
+use App\Http\Controllers\RelatoriosController;
 use App\Http\Controllers\InformesController;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\ItensController;
+use App\Http\Controllers\ItensProjetoController;
 use App\Models\Itens;
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,12 +50,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('informes/create', function () { return view('informes.create'); });
     Route::post('informes/create', [InformesController::class, 'create'])->name('informes.create');
     Route::get('informes', [InformesController::class, 'index'])->name('informes');
-    Route::get('registra_informes', function () { return view('informes.registra_informes'); });
     Route::post('registra_informes', [InformesController::class, 'registra_informes'])->name('registra_informes');
     Route::get('/informes/destroy/{id}', [InformesController::class, 'destroy'])->name('destroy');
-    Route::get('/informes/edit/{id}', [InformesController::class, 'edit'])->name('edit');
-    Route::post('informes/save', [InformesController::class, 'save'])->name('informes.save');
-    Route::get('registra_informes', [InformesController::class, 'getProjetos'])->name('getProjetos');
+    //Route::get('/informes/edit/{id}', [InformesController::class, 'edit'])->name('edit');
+    //Route::post('informes/save', [InformesController::class, 'save'])->name('informes.save');
+    Route::get('registra_informes', [InformesController::class, 'create'])->name('informes.create');
     /*Danilo - Rota Informes - FIM */
     Route::get('/index/item', [ItensController::class,  'index'])->name('index.item');
     Route::get('/create/item', [ItensController::class,  'create'])->name('create.item');
@@ -66,7 +68,23 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/delete/projeto/{id}', [ProjetoController::class, 'delete'])->name('delete.project');
     Route::get('/edit/projeto/{id}', [ProjetoController::class, 'edit'])->name('edit.project');
     Route::post('/update/projeto', [ProjetoController::class, 'update'])->name('update.project');
-
+    Route::post('/insert/item/{projeto_id}', [ProjetoController::class, 'insertItem'])->name('insert.item');
+    // Mayllon: Feature Andamento
+    Route::get('etapa/create', [EtapaController::class, 'create'])->name('etapa.create');
+    Route::post('etapa/store', [EtapaController::class, 'store'])->name('etapa.store');
+    Route::get('etapas', [EtapaController::class, 'index'])->name('etapas');
+    Route::get('etapa/destroy/{id}', [EtapaController::class, 'destroy'])->name('etapa.destroy');
+    Route::get('etapa/edit/{id}', [EtapaController::class, 'edit'])->name('etapa.edit');
+    Route::post('etapa/update', [EtapaController::class, 'update'])->name('etapa.update');
+    
+    Route::get('projeto/show/{id}', [ProjetoController::class, 'show'])->name('projeto.show');
+    Route::get('/item/projeto/edit/{id}', [ItensProjetoController::class, 'edit'])->name('item.projeto.edit');
+    Route::get('/item/projeto/delete/{id}', [ItensProjetoController::class, 'destroy'])->name('item.projeto.delete');
+    Route::post('/item/projeto/update', [ItensProjetoController::class, 'update'])->name('item.projeto.update');
+    Route::get('/itens/projeto/create/{id}', [ItensProjetoController::class, 'create'])->name('itens.projeto.create');
+    Route::post('/item/projeto/store', [ItensProjetoController::class, 'store'])->name('item.projeto.store');
+    // Danilo: Feature Relatorios
+    Route::get('relatorios', [RelatoriosController::class, 'index'])->name('relatorios');
 
 });
 
