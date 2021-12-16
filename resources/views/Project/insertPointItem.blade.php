@@ -13,7 +13,7 @@
                             <div class="form-group row">
                                 @foreach($itens as $item)
                                 <label for="Itens" class="col-md-4 col-form-label text-md-right">{{ __($item->item_nome.':') }} </label>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 mb-4">
                                         <input id="pontuacao_item" type="number" class="form-control @error('pontuacao_item') is-invalid @enderror" name="pontuacao_item[{{$item->id}}][]" value="{{ old('pontuacao_item') }}" required autocomplete="pontuacao_item" autofocus>
                                         @error('pontuacao_item')
                                         <div id="validationServer05Feedback" class="invalid-feedback">

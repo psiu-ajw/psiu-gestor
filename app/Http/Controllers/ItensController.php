@@ -86,16 +86,13 @@ class ItensController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
-    {   //dd($request);
+    {   
         $request->validate([
-            'item_nome' =>  'required|min:6',
-            'pontuacao_item' => 'required|numeric|min:0|not_in:0',
+            'item_nome' =>  'required',
 
         ]);
-        //dd($request);
         $item = Itens::findOrFail($request->id);
         $item->item_nome = $request->item_nome;
-        $item->pontuacao_item = $request->pontuacao_item;
         $item->description =  $request->description;
         $item->update();
 
