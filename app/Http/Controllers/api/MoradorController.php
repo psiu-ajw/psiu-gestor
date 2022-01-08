@@ -44,4 +44,17 @@ class MoradorController extends Controller
         }
         
     }
+
+    public function get(Request $request){
+        if(Morador::where('id', $request->input('id'))->exists()){
+            $morador = Morador::find($request->id);
+            $morador->comunidade->projetos;
+            if(Proposta::where('morador_id', $morador->id)->exists()){
+                $morador->proposta->itens;
+            }
+            return response()->json(["morador" => $morador, "message" => "CPF já cadastrado"], 200);
+        }else{
+            return response()->json(["message" => "Morador não encontrado."], 404);
+        }
+    }
 }
