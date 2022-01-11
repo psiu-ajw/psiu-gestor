@@ -64,7 +64,9 @@ class MoradorController extends Controller
             $morador = Morador::find($id);
             $morador->comunidade->projetos;
             if(Proposta::where('morador_id', $morador->id)->exists()){
-                $morador->proposta->itens;
+                foreach ($morador->proposta as $proposta) {
+                    $proposta->itens;
+                }
             }
             return response()->json(["morador" => $morador, "message" => "CPF já cadastrado"], 200);         
         }else {

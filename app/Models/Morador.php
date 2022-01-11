@@ -18,6 +18,6 @@ class Morador extends Model
 
     public function proposta()
     {
-        return $this->hasOne(Proposta::class);
+        return $this->hasMany(Proposta::class);
     }
 }
