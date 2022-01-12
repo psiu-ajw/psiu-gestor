@@ -39,7 +39,7 @@ class ItensProjetoController extends Controller
                 [ProjetoController::class, 'show'], ['id' => $projeto->id]
             )->with('alert', 'Todos os ítens disponíveis já foram adicionados a este projeto.');
         }
-        return view ('itensProjeto/create', ['itens' => $itens, 'projeto' => $projeto]);
+        return view ('ItensProjeto/create', ['itens' => $itens, 'projeto' => $projeto]);
 
     }
 
