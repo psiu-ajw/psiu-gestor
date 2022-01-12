@@ -24,7 +24,7 @@ class PropostaController extends Controller
                 $itens_proposta->itens_id = $item;
                 $itens_proposta->save();
             }
-            return response()->json(["proposta" => $proposta, "message" => "Proposta cadastrada com sucesso"], 200);
+            return response()->json($proposta, 200);
         }else{
             return response()->json(["message" => "Não foi possível cadastrar a proposta."], 404);
         }
