@@ -70,7 +70,7 @@ class MoradorController extends Controller
                     $proposta->itens;
                 }
             }
-            return response()->json(["morador" => $morador, "message" => "CPF já cadastrado"], 200);         
+            return response()->json($morador, 200);         
         }else {
             return response()->json(["message" => "Morador não encontrado."], 404);
         }
