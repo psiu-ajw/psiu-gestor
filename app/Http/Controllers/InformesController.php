@@ -52,9 +52,11 @@ class InformesController extends Controller
 
     public function create()
     {
-        // $projeto = DB::table('projetos')->pluck("nome_projeto","id");
-        $projeto = Projeto::all();
-        return view('informes.registra_informes',compact('projeto'));
+        $projetos = Projeto::all();
+        foreach ($projetos as $projeto) {
+            $projeto->comunidade;
+        }
+        return view('informes.registra_informes',compact('projetos'));
     }
 
 }

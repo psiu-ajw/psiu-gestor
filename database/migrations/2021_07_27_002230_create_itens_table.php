@@ -15,7 +15,7 @@ class CreateItensTable extends Migration
     {
         Schema::create('itens', function (Blueprint $table) {
             $table->id();
-            $table->string('item_nome')->nullable(true);
+            $table->text('item_nome')->nullable(true);
             $table->timestamps();
             $table->softDeletes();
         });

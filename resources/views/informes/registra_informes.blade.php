@@ -17,8 +17,8 @@
                             <div class="col-md-6">
                             <select name="projeto" class="form-control @error('projeto') inválido @enderror" name="projeto" value="{{ old('projeto') }}" required autocomplete="projeto" >
                     <option value="">--- Selecione o Projeto deste Informe ---</option>
-                    @foreach ($projeto as $projeto)
-                    <option value="{{ $projeto->id }}">{{ $projeto->nome_projeto }}</option>
+                    @foreach ($projetos as $projeto)
+                        <option value="{{ $projeto->id }}">{{ $projeto->comunidade->name." :: ".$projeto->nome_projeto }}</option>
                     @endforeach
                     @error('projeto')
                                     <span class="invalid-feedback" role="alert">
@@ -33,8 +33,9 @@
                             <label for="txt_informe" class="col-md-4 col-form-label text-md-right">{{ __('Insira o texto informativo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="txt_informe" type="text" class="form-control @error('txt_informe') inválido @enderror" name="txt_informe" value="{{ old('txt_informe') }}" required autocomplete="txt_informe">
-
+                                <textarea rows="15" cols="80"  id="txt_informe" class="form-control @error('txt_informe') inválido @enderror" name="txt_informe">
+                                    {{ old('txt_informe') }}
+                                </textarea>
                                 @error('txt_informe')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

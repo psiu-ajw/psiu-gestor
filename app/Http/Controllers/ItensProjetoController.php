@@ -29,6 +29,7 @@ class ItensProjetoController extends Controller
     public function create($id)
     {
         $projeto = Projeto::find($id);
+        $projeto->comunidade;
         $projetoItens = [];
         foreach ($projeto->itens as $item) {
             array_push($projetoItens, $item->id);

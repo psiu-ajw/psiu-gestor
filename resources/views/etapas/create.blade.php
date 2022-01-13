@@ -17,7 +17,7 @@
                                     <select class="form-control @error('projeto') inválido @enderror" name="id_projeto" value="{{ old('projeto') }}" required autocomplete="projeto" >
                                         <option value="">--- Selecione o Projeto deste Informe ---</option>
                                         @foreach ($projetos as $projeto)
-                                            <option value="{{ $projeto['id'] }}">{{ $projeto['nome_projeto'] }}</option>
+                                            <option value="{{ $projeto->id }}">{{ $projeto->comunidade->name." :: ".$projeto->nome_projeto }}</option>
                                         @endforeach
                                         @error('projeto')
                                             <span class="invalid-feedback" role="alert">

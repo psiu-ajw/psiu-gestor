@@ -28,6 +28,9 @@ class EtapaController extends Controller
     public function create()
     {
         $projetos = Projeto::all();
+        foreach ($projetos as $projeto) {
+            $projeto->comunidade;
+        }
         return view ('etapas/create', ['projetos' => $projetos]);
     }
     

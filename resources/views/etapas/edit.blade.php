@@ -11,24 +11,6 @@
                             @csrf
                             <input id="id" type="hidden" class="form-control" name="id" value="{{ $etapa->id }}">
                             <div class="form-group row">
-                                <label for="projeto" class="col-md-4 col-form-label text-md-right">Selecione o Projeto:</label>
-
-                                <div class="col-md-6">
-                                    <select class="form-control @error('projeto') inválido @enderror" name="id_projeto" value="{{ old('projeto') }}" required autocomplete="projeto" >
-                                        <option value="">--- Selecione o Projeto deste Informe ---</option>
-                                        @foreach ($projetos as $projeto)
-                                            <option value="{{ $projeto['id'] }}" {{$etapa->id_projeto  == $projeto->id ? 'selected' : ''}} >{{ $projeto['nome_projeto'] }}</option>
-                                        @endforeach
-                                        @error('projeto')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
                                 <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Título') }}</label>
                                 <div class="col-md-6">
                                     <input placeholder="Insira o título desta etapa do andamento do projeto" id="titulo" type="text" class="form-control @error('titulo') inválido @enderror" name="titulo" value="{{ $etapa['titulo'] }}" required autocomplete="titulo">

@@ -16,7 +16,7 @@
                             <label for="nome_projeto" class="col-md-4 col-form-label text-md-right">{{ __('Projeto') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nome_projeto" type="text"  value="{{ $projeto->nome_projeto }}"  disabled class="form-control @error('nome_projeto') inválido @enderror" name="nome_projeto" value="{{ old('nome_projeto') }}" required autocomplete="nome_projeto" autofocus>
+                                <input id="nome_projeto" type="text"  value="{{ $projeto->comunidade->name." :: ".$projeto->nome_projeto }}"  disabled class="form-control @error('nome_projeto') inválido @enderror" name="nome_projeto" value="{{ old('nome_projeto') }}" required autocomplete="nome_projeto" autofocus>
 
                                 @error('nome_projeto')
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>

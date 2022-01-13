@@ -26,7 +26,10 @@
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descrição:') }}</label>
 
                             <div class="col-md-6">
-                                <input id="description" type="text" class="form-control @error('description') inválido @enderror" name="description" value= "{{ $item->description }}" required autocomplete="description" autofocus>
+                                {{-- <input id="description" type="text" class="form-control @error('description') inválido @enderror" name="description" value= "{{ $item->description }}" required autocomplete="description" autofocus> --}}
+                                <textarea rows="10" cols="60"  id="description" class="form-control @error('description') inválido @enderror" name="description">
+                                    {{ $item->description }}
+                                </textarea>
                                 @error('description')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                                 @enderror

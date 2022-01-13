@@ -60,21 +60,21 @@ class ProjetoController extends Controller
         $projeto->pontuacao = $request->pontuacao;
         $projeto->financiador = $request->financiador;
         $projeto->save();
-        foreach($request->itens_select as $item_id) {
-            $itens_projeto = new ItensProjeto();
-            $itens_projeto->id_projeto = $projeto->id;
-            $itens_projeto->id_item = $item_id;
-            $itens_projeto->pontuacao_item = 0;
-            $itens_projeto->save();
+        if($request->itens_select){
+            foreach($request->itens_select as $item_id) {
+                $itens_projeto = new ItensProjeto();
+                $itens_projeto->id_projeto = $projeto->id;
+                $itens_projeto->id_item = $item_id;
+                $itens_projeto->pontuacao_item = 0;
+                $itens_projeto->save();
+            }
+            $itens = ItensProjeto::where('id_projeto', '=', $projeto->id)
+                ->join('itens', 'itens_projetos.id_item', '=', 'itens.id')->get();
+            $arrayPoint = [];
+    
+            return view ('Project/insertPointItem', ['itens' => $itens], ['projeto' => $projeto->id], ['array' => $arrayPoint]);
         }
-        $itens = ItensProjeto::where('id_projeto', '=', $projeto->id)
-            ->join('itens', 'itens_projetos.id_item', '=', 'itens.id')->get();
-        //dd($projeto->id);
-        $arrayPoint = [];
-
-        return view ('Project/insertPointItem', ['itens' => $itens], ['projeto' => $projeto->id], ['array' => $arrayPoint]);
-
-
+        return view ('Project/show', ['projeto' => $projeto]);
     }
 
 
@@ -102,7 +102,6 @@ class ProjetoController extends Controller
     public function insertPointItem (Request $request)
     {
         $id = $_GET['projeto_id'];
-        dd($id);
         $itemProjeto = ItensProjeto::findOrFail();
     }
 

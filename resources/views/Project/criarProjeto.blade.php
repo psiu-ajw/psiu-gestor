@@ -38,19 +38,6 @@
                                 @endif
                             </div>
                         </div>
-
-                        {{-- <div class="form-group row">
-                            <label for="area_projeto" class="col-md-4 col-form-label text-md-right">{{ __('Área do Projeto') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="area_projeto" type="text" class="form-control @error('area_projeto') inválido @enderror" name="area_projeto" value="{{ old('area_projeto') }}" required autocomplete="area_projeto">
-
-                                @error('area_projeto')
-                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div> --}}
-
                         <div class="form-group row">
                             <label for="pontuacao" class="col-md-4 col-form-label text-md-right">{{ __('Pontuação') }}</label>
 
@@ -79,25 +66,6 @@
 								@endif
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="financiador" class="col-md-4 col-form-label text-md-right">{{ __('Financiador') }}</label>
-
-                            <div class="col-md-6">
-								<select class="form-control{{ $errors->has('financiador') ? ' is-invalid' : '' }}" name="financiador" required autofocus>
-									<option hidden disabled selected>Selecione o Financiador</option>
-									@foreach ($financiadores as $financiador)
-										<option value="{{$financiador}}" @if (old('financiador') == $financiador) selected @endif>{{$financiador}}</option>
-									@endforeach
-								</select>
-								@if ($errors->has('financiador'))
-									<span class = "invalid-feedback" role="alert">
-										{{$errors->first('financiador')}}
-									</span>
-								@endif
-                            </div>
-                        </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

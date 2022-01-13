@@ -14,8 +14,10 @@
 
                             <div class="col-md-6">
                                 <input id="id" type="hidden" class="form-control" name="id" value="{{ $informes->id }}">
-                                <input id="txt_informe" type="text" class="form-control @error('txt_informe') is-invalid @enderror" name="txt_informe" value="{{ $informes->txt_informe }}" required autocomplete="txt_informe" autofocus>
-
+                                {{-- <input id="txt_informe" type="text" class="form-control @error('txt_informe') is-invalid @enderror" name="txt_informe" value="{{ $informes->txt_informe }}" required autocomplete="txt_informe" autofocus> --}}
+                                <textarea rows="15" cols="80" id="txt_informe" class="form-control @error('txt_informe') inválido @enderror" name="txt_informe">
+                                    {{ $informes->txt_informe }}
+                                </textarea>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

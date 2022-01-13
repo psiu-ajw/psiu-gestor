@@ -17,7 +17,7 @@ class CreateInformesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('id_projeto');
-            $table->string('txt_informe'); 
+            $table->text('txt_informe'); 
         });
     }
 
