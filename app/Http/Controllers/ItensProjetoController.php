@@ -13,7 +13,7 @@ class ItensProjetoController extends Controller
     public function edit($id)
     {
         $itemProjeto = ItensProjeto::find($id);
-        return view ('itensProjeto/edit', ['itemProjeto' => $itemProjeto]);
+        return view ('ItensProjeto/edit', ['itemProjeto' => $itemProjeto]);
     }
     
     public function update(Request $request)
