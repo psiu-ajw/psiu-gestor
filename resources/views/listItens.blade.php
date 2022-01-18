@@ -13,6 +13,7 @@
 					<tr>
 						<th>#</th>
 						<th>Itens</th>
+						<th>Imagem</th>
 						<th>Descrição</th>
 						<th style="width: 15%">Opções</th>
 					</tr>
@@ -23,6 +24,7 @@
 						<tr>
 							<td>{{$item->id}}</td>
 							<td>{{$item->item_nome}}</td>
+							<td> <img src="{{ asset('../storage/app/public/item/'.$item->imagem) }}" alt="" style="height:70px;"> </td>
 							<td>{{$item->description}}</td>
 							<td>
 								<a @popper(Editar item) href="{{ route('edit.item', ['id' => $item->id]) }}" class="btn btn-primary">
