@@ -41,7 +41,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Cadastrar') }}
+                                    {{ __('Salvar') }}
                                 </button>
                                 <div class="btn btn-secondary">
                                     <a href="{{ URL::previous() }}" class="hover:text-white hover:no-underline">Cancelar</a>

@@ -20,6 +20,7 @@ use App\Http\Controllers\api\PropostaController;
 |
 */
 
+// Mayllon: API
 Route::get('moradores', [MoradorController::class, 'index']);
 Route::post('morador', [MoradorController::class, 'store']);
 Route::get('morador/{id}', [MoradorController::class, 'get']);

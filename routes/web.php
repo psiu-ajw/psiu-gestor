@@ -30,6 +30,7 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => 'auth'], function() {
+    // Mayllon: Usuários e Comunidade
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/users', [UserController::class, 'index'])->name('users');
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
@@ -46,7 +47,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('community/destroy/{id}', [CommunityController::class, 'destroy'])->name('community.destroy');
     Route::get('community/edit/{id}', [CommunityController::class, 'edit'])->name('community.edit');
     Route::post('community/save', [CommunityController::class, 'save'])->name('community.save');
-    /*Danilo - Rota Informes - INI */
+    
+    // Danilo - Rota Informes - INI 
     Route::get('informes/create', function () { return view('informes.create'); });
     Route::post('informes/create', [InformesController::class, 'create'])->name('informes.create');
     Route::get('informes', [InformesController::class, 'index'])->name('informes');
@@ -55,7 +57,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/informes/edit/{id}', [InformesController::class, 'edit'])->name('edit');
     Route::post('informes/save', [InformesController::class, 'save'])->name('informes.save');
     Route::get('registra_informes', [InformesController::class, 'create'])->name('informes.create');
-    /*Danilo - Rota Informes - FIM */
+
+    // Alvanir: itens e Projetos
     Route::get('/index/item', [ItensController::class,  'index'])->name('index.item');
     Route::get('/create/item', [ItensController::class,  'create'])->name('create.item');
     Route::post('/store/item', [ItensController::class,   'store'])->name('store.item');
@@ -69,6 +72,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/edit/projeto/{id}', [ProjetoController::class, 'edit'])->name('edit.project');
     Route::post('/update/projeto', [ProjetoController::class, 'update'])->name('update.project');
     Route::post('/insert/item/{projeto_id}', [ProjetoController::class, 'insertItem'])->name('insert.item');
+    
     // Mayllon: Feature Andamento
     Route::get('etapa/create', [EtapaController::class, 'create'])->name('etapa.create');
     Route::post('etapa/store', [EtapaController::class, 'store'])->name('etapa.store');
@@ -77,12 +81,14 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('etapa/edit/{id}', [EtapaController::class, 'edit'])->name('etapa.edit');
     Route::post('etapa/update', [EtapaController::class, 'update'])->name('etapa.update');
     
+    // Mayllon: Exibição de projeto e inclusão de itens avulsos
     Route::get('projeto/show/{id}', [ProjetoController::class, 'show'])->name('projeto.show');
     Route::get('/item/projeto/edit/{id}', [ItensProjetoController::class, 'edit'])->name('item.projeto.edit');
     Route::get('/item/projeto/delete/{id}', [ItensProjetoController::class, 'destroy'])->name('item.projeto.delete');
     Route::post('/item/projeto/update', [ItensProjetoController::class, 'update'])->name('item.projeto.update');
     Route::get('/itens/projeto/create/{id}', [ItensProjetoController::class, 'create'])->name('itens.projeto.create');
     Route::post('/item/projeto/store', [ItensProjetoController::class, 'store'])->name('item.projeto.store');
+    
     // Danilo: Feature Relatorios
     Route::get('relatorios', [RelatoriosController::class, 'index'])->name('relatorios');
 
