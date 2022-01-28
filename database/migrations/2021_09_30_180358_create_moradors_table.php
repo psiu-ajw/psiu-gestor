@@ -19,6 +19,7 @@ class CreateMoradorsTable extends Migration
             $table->date('data_nascimento');
             $table->string('estado_civil');
             $table->string('raca');
+            $table->string('identidade_genero');
             $table->unsignedBigInteger('bairro_comunidade')->nullable(true);
             $table->timestamps();
         });

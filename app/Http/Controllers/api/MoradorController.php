@@ -35,6 +35,7 @@ class MoradorController extends Controller
             $morador->data_nascimento = $request->input('data_nascimento');
             $morador->estado_civil = $request->input('estado_civil');
             $morador->raca = $request->input('raca');
+            $morador->identidade_genero = $request->input('identidade_genero');
             $morador->bairro_comunidade = $request->input('bairro_comunidade');
             
             if( $morador->save() ){
