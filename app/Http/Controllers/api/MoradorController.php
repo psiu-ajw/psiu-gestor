@@ -44,6 +44,7 @@ class MoradorController extends Controller
             }else{
                 return response()->json(["message" => "Não foi possível cadastrar o morador."], 404);
             }
+            
         }
         
     }
